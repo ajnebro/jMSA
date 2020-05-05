@@ -1,10 +1,20 @@
-jMSA project documentation
-==========================
+.. jMSA documentation master file, created by
+   sphinx-quickstart on Tue May  5 09:33:13 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-jMSA is ...
+Welcome to jMSA's documentation!
+================================
 
 .. toctree::
-    :maxdepth: 1
-    :caption: Index:
+   :maxdepth: 2
+   :caption: Contents:
 
-    installation.rst
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
