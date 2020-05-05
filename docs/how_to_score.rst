@@ -1,4 +1,3 @@
-Multiple sequence alignment
-===========================
+How to score a MSA
+==================
 
-Problem description here ...

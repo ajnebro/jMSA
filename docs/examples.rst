@@ -1,4 +1,4 @@
-Multiple sequence alignment
-===========================
+Examples
+========
 
-Problem description here ...
+Some examples here ...

@@ -11,7 +11,7 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 `multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequence_alignment>`_  (MSA).
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Index:
 
    problem.rst

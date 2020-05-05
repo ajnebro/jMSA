@@ -1,4 +1,4 @@
-Multiple sequence alignment
-===========================
+Tools for multiple sequence alignment
+=====================================
 
-Problem description here ...
+Clustal W, Muscle, MAFFT ...
