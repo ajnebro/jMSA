@@ -6,6 +6,8 @@
 Welcome to jMSA's documentation!
 ================================
 
+jMSA is a collaborative project of the students of the "Programación Avanzada in Bionformatics" subject ...
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
