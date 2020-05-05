@@ -12,7 +12,7 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 
 .. toctree::
    :maxdepth: 1
-   Contents
+   :caption: Index:
 
    problem.rst
    installation.rst
