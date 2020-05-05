@@ -7,9 +7,11 @@ Welcome to jMSA's documentation!
 ================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
+   problem.rst
+   installation.rst
 
 
 Indices and tables
