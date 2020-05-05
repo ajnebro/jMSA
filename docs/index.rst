@@ -1,5 +1,7 @@
 jMSA project documentation
-==============================
+==========================
+
+jMSA is ...
 
 .. toctree::
     :maxdepth: 1
