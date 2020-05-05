@@ -1,4 +1,4 @@
-package org.example;
+package org.jmsa;
 
 import static org.junit.Assert.assertTrue;
 
