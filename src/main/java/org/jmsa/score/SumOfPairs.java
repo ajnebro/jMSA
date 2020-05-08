@@ -1,11 +1,11 @@
-package org.jmsa.score.impl;
+package org.jmsa.score;
 
 import org.jmsa.score.Score;
 
 /**
  * Hello world!
  */
-public class PercentageOfTotallyConservedColumns implements Score {
+public class SumOfPairs implements Score {
   public double compute(char[][] sequence) {
     return 0;
   }
