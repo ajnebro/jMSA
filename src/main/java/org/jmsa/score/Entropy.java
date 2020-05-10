@@ -11,35 +11,29 @@ import java.util.Map;
  */
 public class Entropy implements Score {
   public double compute(char[][] sequence) {
-
-    double t = 0;
-    double a = 0;
-    double g = 0;
-    double c = 0;
-    double total= sequence.length;
+    double totalNumberOfNucleotides = 0;
     double entropy = 0;
-    List<Double> frequencies;
-    for (int i = 0; i <= sequence.length; i++) {
-      for (int j = 0; j <= sequence.length; j++) {
-        switch (sequence[i][j]) {
-          case 'a':
-            a++;
-            break;
-          case 'c':
-            c++;
-            break;
-          case 't':
-            t++;
-            break;
-          case 'g':
-            g++;
-            break;
+    HashMap<Character, Integer> MapOfNucleotideFrequencies = new HashMap<>();
+    double nucleotideFrequency = 0;
+    for (char[] line : sequence) {
+      for (char nuc : line) {
+        if (MapOfNucleotideFrequencies.containsKey(nuc)) {
+          MapOfNucleotideFrequencies.put(nuc, MapOfNucleotideFrequencies.get(nuc) + 1);
+        } else {
+          MapOfNucleotideFrequencies.put(nuc, 1);
         }
+        totalNumberOfNucleotides++;
+
       }
+
     }
-    frequencies = List.of(a/total, c/total, t/total, g/total);
-    for (double nucleotideFrequency : frequencies)
-      entropy += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(2));
+
+
+      for (Map.Entry<Character, Integer> entry : MapOfNucleotideFrequencies.entrySet()) {
+        nucleotideFrequency = (double) entry.getValue() / totalNumberOfNucleotides;
+        entropy += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(2));
+      }
     return entropy;
   }
+
 }

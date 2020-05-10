@@ -22,13 +22,21 @@ public class EntropyTest {
         entropy = new Entropy();
     }
     @Test
-    public void shouldEntropyOfSequenceLength1Return0() {
+    public void shouldEntropyOfSequenceOf2NucleotidesReturn0() {
         long expectedValue = 0;
         sequence= new char['A']['A'];
-       // long obtainedValue = Entropy.compute(sequence);
-        //assertEquals(expectedValue, obtainedValue);
+       double obtainedValue = entropy.compute(sequence);
+        assertEquals(expectedValue, obtainedValue);
 
     }
+    @Test
+    public void shouldEntropyOfSequenceOf4DifferentNucleotidesReturn2() {
+        long expectedValue = 2;
+        sequence= new char[][]{{'A', 'G'}, {'C', 'T'}};
+        double obtainedValue = entropy.compute(sequence);
+        assertEquals(expectedValue, obtainedValue);
+    }
+
 
 }
 
