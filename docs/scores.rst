@@ -6,7 +6,7 @@ Explanation of the scores here ...
 Star
 ----
 asdfasd
-asdfasdf
+dfadfasfasfd
 asfasdfasdfasfasdasfasf
 
 Sum of pairs
