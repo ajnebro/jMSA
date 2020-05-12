@@ -10,7 +10,9 @@ This method makes use of a substitution matrix.
 Star considers the most repeated symbol.
 
 The process is:
+
 - To find the scores of all pairs making a substitution matrix S.
+
 - To find the "center" Sc, so that:
 
 .. figure:: /resources/image/Captura1.PNG
