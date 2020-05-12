@@ -20,6 +20,7 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
    how_to_score.rst
    scores.rst
    examples.rst
+   utils.rst
 
 
 .. Indices and tables

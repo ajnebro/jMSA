@@ -15,6 +15,7 @@ public class ReadMSA {
     File file = new File(filepath);
     Scanner reader = new Scanner(file);
 
+
     boolean first = true;
     while(reader.hasNextLine()) {
       String line = reader.nextLine().trim();
@@ -35,9 +36,9 @@ public class ReadMSA {
             seqList.get(rowCnt).add(c);
           }
         }
-      }else { //line.isBlank()==true;
+      }else if(line.isBlank()){ //line.isBlank()==true;
         if(reader.hasNextLine()) {
-          line=reader.nextLine();
+          continue;
         }else {
           line=null;
         }
@@ -46,7 +47,7 @@ public class ReadMSA {
 
     reader.close();
 
-    if(!allListsEqual(seqList)) {
+    if(!seqAlignedCorrectly(seqList)) {
       throw new RuntimeException("The sequences in the input .fasta file are not aligned correctly");
     }
 
@@ -60,7 +61,7 @@ public class ReadMSA {
     return myArray;
   }
 
-  public static boolean allListsEqual(List<List<Character>> theList) {
+  private static boolean seqAlignedCorrectly(List<List<Character>> theList) {
     boolean eq = true;
     int sizeRef = theList.get(0).size();
     for (List<Character> list : theList) {
@@ -71,4 +72,13 @@ public class ReadMSA {
 
     return eq;
   }
+
+  //public static void main(String[] args) throws FileNotFoundException {
+  //  char[][] myArray = readSequenceFromFastaFile("./resources/data/correctSequence.fasta");
+  //  System.out.println("Size: "+myArray.length);
+  //  System.out.println("1st element in second seq: "+myArray[1][0]);
+  //  System.out.println("2nd element in second seq: "+myArray[1][1]);
+  //  System.out.println("3rd element in second seq: "+myArray[1][2]);
+  //  System.out.println("11th element "+myArray[0][10]);
+  //}
 }
