@@ -25,3 +25,5 @@ gaps as chars), they will be considered correctly aligned).
 |                        | *theList* are of the same size                     |
 +------------------------+----------------------------------------------------+
 
+Class ReadMSATest contains methods for unit testing of the code in class ReadMSA.
+The tests

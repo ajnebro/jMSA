@@ -72,13 +72,4 @@ public class ReadMSA {
 
     return eq;
   }
-
-  //public static void main(String[] args) throws FileNotFoundException {
-  //  char[][] myArray = readSequenceFromFastaFile("./resources/data/correctSequence.fasta");
-  //  System.out.println("Size: "+myArray.length);
-  //  System.out.println("1st element in second seq: "+myArray[1][0]);
-  //  System.out.println("2nd element in second seq: "+myArray[1][1]);
-  //  System.out.println("3rd element in second seq: "+myArray[1][2]);
-  //  System.out.println("11th element "+myArray[0][10]);
-  //}
 }
