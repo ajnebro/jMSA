@@ -32,9 +32,18 @@ public class EntropyTest {
     @Test
     public void shouldEntropyOfSequenceOf4DifferentNucleotidesReturn2() {
         long expectedValue = 2;
-        sequence= new char[][]{{'A', 'G'}, {'C', 'T'}};
+        sequence= new char[][]{{'A', '-','-','G'}, {'C', 'T'}};
         double obtainedValue = entropy.compute(sequence);
         assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldEntropyWithGapsOfSequenceOf2NucleotidesReturn0() {
+        long expectedValue = 0;
+        sequence= new char[][]{{'A','-'},{'A'}};
+        double obtainedValue = entropy.compute(sequence);
+        assertEquals(expectedValue, obtainedValue);
+
     }
 
 

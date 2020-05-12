@@ -15,15 +15,19 @@ public class Entropy implements Score {
     double entropy = 0;
     HashMap<Character, Integer> MapOfNucleotideFrequencies = new HashMap<>();
     double nucleotideFrequency = 0;
+
     for (char[] line : sequence) {
       for (char nuc : line) {
-        if (MapOfNucleotideFrequencies.containsKey(nuc)) {
-          MapOfNucleotideFrequencies.put(nuc, MapOfNucleotideFrequencies.get(nuc) + 1);
-        } else {
-          MapOfNucleotideFrequencies.put(nuc, 1);
-        }
-        totalNumberOfNucleotides++;
+        if (nuc == 'T'||nuc=='A'|| nuc =='C'|| nuc=='G')  {
 
+          if (MapOfNucleotideFrequencies.containsKey(nuc)) {
+            MapOfNucleotideFrequencies.put(nuc, MapOfNucleotideFrequencies.get(nuc) + 1);
+          } else {
+            MapOfNucleotideFrequencies.put(nuc, 1);
+          }
+          totalNumberOfNucleotides++;
+
+        }
       }
 
     }
