@@ -1,20 +1,20 @@
-package java.org.jmsa.score.impl;
+package org.jmsa.score.impl;
 
 import org.jmsa.score.Score;
-
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 
 /**
- * Hello world!
+ *
  * grupo 3: irene sanchez, clara jimenez y lucia valverde
  */
 public class Star implements Score {
-  private final org.jmsa.substitutionmatrix.SubstitutionMatrix scoreMatrix;
+  private final SubstitutionMatrix scoreMatrix;
 
-
-  public Star(org.jmsa.substitutionmatrix.SubstitutionMatrix matrix){
+  public Star(SubstitutionMatrix matrix){
     scoreMatrix = matrix;
   }
+
   public double compute(char[][] sequence) {
     double result = 0;
 
