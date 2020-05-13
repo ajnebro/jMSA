@@ -44,7 +44,7 @@ Following is the Method Summary for the class.
 | public void            | Unit testing for correctly aligned sequences.      |
 |                        | Fails if the length of returned array does not fit |
 |                        | the number of sequences in the input file, or if   |
-|                        | any of the sequences has been read wrong.          |
+|                        | any of the sequences has been read wrong           |
 +------------------------+----------------------------------------------------+
 | @Test                  | correctHandlingOfBlankLinesTest()                  |
 |                        |                                                    |
@@ -56,7 +56,7 @@ Following is the Method Summary for the class.
 |                        |                                                    |
 | public void            | Unit testing for invalid filepaths. Fails if no    |
 |                        | FileNotFoundException is raised in case of passing |
-|                        | an invalid filepath as a parameter.                |
+|                        | an invalid filepath as a parameter                 |
 +------------------------+----------------------------------------------------+
 | @Test                  | incorrectSequenceTest()                            |
 |                        |                                                    |
@@ -64,9 +64,9 @@ Following is the Method Summary for the class.
 |                        | The test fails if a file with incorrectly aligned  |
 |                        | (not equal in size) sequences is passed as a       |
 |                        | parameter in method call, and no RuntimeException  |
-|                        | is thrown.                                         |
+|                        | is thrown                                          |
 +------------------------+----------------------------------------------------+
 | @AterEach              | fin()                                              |
 |                        |                                                    |
-| public void            | Sets *seqReader* to null after each test.          |
+| public void            | Sets *seqReader* to null after each test           |
 +------------------------+----------------------------------------------------+
