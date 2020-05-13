@@ -26,4 +26,47 @@ gaps as chars), they will be considered correctly aligned).
 +------------------------+----------------------------------------------------+
 
 Class ReadMSATest contains methods for unit testing of the code in class ReadMSA.
-The tests
+The tests were written to cover 100% of the code in ReadMSA.
+Following is the Method Summary for the class.
+
++-----------------------------------------------------------------------------+
+|  Method Summary                                                             |
++========================+====================================================+
+| **Modifier and Type**  | **Method and Description**                         |
++------------------------+----------------------------------------------------+
+| @BeforeEach            | init()                                             |
+|                        |                                                    |
+| public void            | Initializes *seqReader* (the instance of ReadMSA)  |
+|                        | before each Test                                   |
++------------------------+----------------------------------------------------+
+| @Test                  | correctSequenceHandlingTest()                      |
+|                        |                                                    |
+| public void            | Unit testing for correctly aligned sequences.      |
+|                        | Fails if the length of returned array does not fit |
+|                        | the number of sequences in the input file, or if   |
+|                        | any of the sequences has been read wrong.          |
++------------------------+----------------------------------------------------+
+| @Test                  | correctHandlingOfBlankLinesTest()                  |
+|                        |                                                    |
+| public void            | Unit testing for files that have blank lines (if   |
+|                        | not handled correctly, blank lines will cause the  |
+|                        | program to throw exception)                        |
++------------------------+----------------------------------------------------+
+| @Test                  | invalidFilePathTest()                              |
+|                        |                                                    |
+| public void            | Unit testing for invalid filepaths. Fails if no    |
+|                        | FileNotFoundException is raised in case of passing |
+|                        | an invalid filepath as a parameter.                |
++------------------------+----------------------------------------------------+
+| @Test                  | incorrectSequenceTest()                            |
+|                        |                                                    |
+| public void            | Unit testing for incorrectly aligned sequences.    |
+|                        | The test fails if a file with incorrectly aligned  |
+|                        | (not equal in size) sequences is passed as a       |
+|                        | parameter in method call, and no RuntimeException  |
+|                        | is thrown.                                         |
++------------------------+----------------------------------------------------+
+| @AterEach              | fin()                                              |
+|                        |                                                    |
+| public void            | Sets *seqReader* to null after each test.          |
++------------------------+----------------------------------------------------+
