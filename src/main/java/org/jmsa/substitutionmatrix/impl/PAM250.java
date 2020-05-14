@@ -17,12 +17,12 @@ public class PAM250 implements SubstitutionMatrix {
     private HashMap<List, Integer> subsMat;
 
 
-    public PAM250() throws IOException {
+    public PAM250() {
         this.gapPenalty = -8D;
         this.subsMat = readFromFile();
     }
 
-    public PAM250(Double gp) throws IOException {
+    public PAM250(Double gp) {
         this.gapPenalty = gp;
         this.subsMat = readFromFile();
     }
@@ -33,8 +33,7 @@ public class PAM250 implements SubstitutionMatrix {
         par.add(Character.toString(char2));
         double distance = 1;
 
-        if (char1 == this.getGapCharacter() & char2 ==
-                this.getGapCharacter()) {
+        if (char1 == this.getGapCharacter() & char2 == this.getGapCharacter()) {
         } else if (char1 == this.getGapCharacter() || char2 == this.getGapCharacter()) {
             distance = this.getGapPenalty();
         } else if (!subsMat.containsKey(par)) {
@@ -46,7 +45,6 @@ public class PAM250 implements SubstitutionMatrix {
         return distance;
     }
 
-
     public char getGapCharacter() {
         return '-';
     }
@@ -55,29 +53,27 @@ public class PAM250 implements SubstitutionMatrix {
         return gapPenalty;
     }
 
-    private HashMap<List, Integer> readFromFile() throws IOException {
+    private HashMap<List, Integer> readFromFile() {
         HashMap<List, Integer> subsMatrix = new HashMap<List, Integer>();
-        BufferedReader fileReader;
+        BufferedReader fileReader = null;
         String line;
         List<String> guide = null;
         List<String> key1;
         List<String> key2;
         Integer value;
 
-        //CHANGE THE PATH!!
-        fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))));
         try {
+            fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))));
             while ((line = fileReader.readLine()) != null) {
-                if (line.startsWith("#") == false & line.startsWith("*") == false) {
+                if (!line.startsWith("#") & !line.startsWith("*")) {
                     List<String> lineMatrix = Arrays.asList(line.trim().split("\\s+"));
-                    if (line.startsWith(" ") == true) {
+                    if (line.startsWith(" ")) {
                         guide = lineMatrix;
                     } else {
                         for (int i = 0; i < guide.size() - 2; i++) {
                             key1 = new ArrayList<>();
                             key1.add(lineMatrix.get(0));
                             key1.add(guide.get(i));
-
                             key2 = new ArrayList<>();
                             key2.add(guide.get(i));
                             key2.add(lineMatrix.get(0));
@@ -93,11 +89,27 @@ public class PAM250 implements SubstitutionMatrix {
         } catch (FileNotFoundException e) {
             System.out.println("File: PAM250 is not found");
             System.exit(1);
+        } catch (IOException e) {
+            System.out.println("An IO error has occured: " + e.getMessage());
+            System.exit(1);
+        } finally {
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    // nothing
+                }
+            }
         }
-
-        fileReader.close();
         return subsMatrix;
     }
+
+    /*
+    public static void main(String[] args) {
+        PAM250 p250 = new PAM250();
+        p250.readFromFile();
+    }
+    */
 }
 
 

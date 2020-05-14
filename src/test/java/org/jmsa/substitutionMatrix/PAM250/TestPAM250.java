@@ -3,9 +3,6 @@ package org.jmsa.substitutionMatrix.PAM250;
 import org.jmsa.substitutionmatrix.impl.PAM250;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -14,7 +11,7 @@ public class TestPAM250 {
     private PAM250 p250;
 
     @Test
-    public void testShouldReturnMinus8() throws IOException {
+    public void testShouldReturnMinus8() {
         p250 = new PAM250();
         double expectedValue = -8D;
         double obtainedValue = p250.getGapPenalty();
@@ -22,16 +19,16 @@ public class TestPAM250 {
     }
 
     @Test
-    public void testShouldReturn10() throws IOException {
-        p250 = new PAM250(10D);
-        double expectedValue = 10;
+    public void testShouldReturn10() {
+        p250 = new PAM250(-10D);
+        double expectedValue = -10;
         double obtainedValue = p250.getGapPenalty();
         assertEquals(expectedValue, obtainedValue);
 
     }
 
     @BeforeEach
-    private void setUp() throws IOException {
+    public void setUp() {
         p250 = new PAM250();
     }
 
@@ -67,15 +64,7 @@ public class TestPAM250 {
         assertEquals(-4, p250.getDistance('R', 'Y'));
         assertEquals(12, p250.getDistance('C', 'C'));
         assertEquals(-6, p250.getDistance('W', 'P'));
+        assertEquals(6, p250.getDistance('H', 'H'));
     }
-
-   /*
-   //Me falta por completar
-   @Test
-   public void testShoulReturnException() {
-       assertThrows(RuntimeException.class, () -> p250.getDistance('-', '-'));
-   }
-    */
-
 
 }
