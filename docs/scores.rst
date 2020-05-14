@@ -20,13 +20,6 @@ That is the reason why we are going to create the class ‘PercentageOfNonGaps�
 This class implements Score class. It has a method called ‘compute’ which we pass a matrix as a parameter. A counter for non-gaps is initialized to zero This method has nested loop to loop through it.  If the element we read is different from a hyphens, we increase the counter.
 Finally we divide this counter between the total length of the sequence. To obtain a percentage over 100, we multiply the result by 100. 
  
-Test
-To prove that our class is working correctly, is necessary to made some tests. We have done these tests:
-1.- The percentage of a sequence without gaps is 100%
-2.- The percentage of a sequence that only has gaps is 0%
-3.- The percentage of a sequence with half letters and half gaps is 50%
-4.- The percentage of a sequence with ¾ letters and ¼ gasp is 75%.
-5.- The percentage of a sequence with 10 letters and 2 gaps is 83.33%
 
 Percentage of totally conserved columns
 ---------------------------------------
