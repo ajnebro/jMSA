@@ -1,7 +1,10 @@
-package org.jmsa.score.impl;
+package java.org.jmsa.score.impl;
 
 import org.jmsa.score.Score;
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /** grupo 3: irene sanchez, clara jimenez y lucia valverde */
 public class Star implements Score {
@@ -20,6 +23,31 @@ public class Star implements Score {
       // 1. Seleccionamos el aa más repetido de todas las secuencias en la posición (o columna)
       // columnSequence. Para ello creamos dos arrays con la misma longitud
       // En uno guardamos el char del aa y en el otro su frecuencia
+
+      HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
+
+      for (int k = 0; k < sequence.length; k++){
+        Character letter = sequence[k][columnSequence];
+        if(charFreq.containsKey(sequence[k][columnSequence])){
+          Integer newFreq = (Integer) charFreq.get(letter) +1;
+          charFreq.remove(letter);
+          charFreq.put(letter, newFreq);
+        }
+        else{
+          charFreq.put(letter, 1);
+        }
+      }
+      int moreRepeatedFreq = 0;
+      Character moreRepeated = sequence[0][columnSequence];
+
+      for(Map.Entry<Character, Integer> entry :charFreq.entrySet()){
+        if(entry.getValue()>moreRepeatedFreq){
+          moreRepeated = entry.getKey();
+          moreRepeatedFreq = entry.getValue();
+        }
+      }
+      /*
+
 
       Character[] aaChar = new Character[sequence.length];
       int[] aaFreq = new int[sequence.length];
@@ -61,6 +89,7 @@ public class Star implements Score {
           moreRepeated = aaChar[value];
         }
       }
+      */
 
       // 2. Calculamos la puntuación para esta columna
       for (char[] chars : sequence) {

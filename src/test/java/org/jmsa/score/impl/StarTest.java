@@ -4,6 +4,7 @@ import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.org.jmsa.score.impl.Star;
 import java.util.Map;
 import java.util.TreeMap;
 
