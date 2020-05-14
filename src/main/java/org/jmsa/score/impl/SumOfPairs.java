@@ -21,21 +21,22 @@ public class SumOfPairs implements Score {
         double totalSum = 0;
 
         for (int c = 0; c < sequence[0].length; c++) {
-            totalSum += sumCol(sequence, c);
+            totalSum += sumCol(sequence,c);
+            }
+        return totalSum;
         }
 
-        return totalSum;
-    }
+    public double sumCol(char[][] sequence,int columna){
 
-    private double sumCol(char[][] sequence, int column) {
-        double columnSum = 0;
+        double columnSum=0;
         for (int f = 0; f < sequence.length - 1; f++) {
             for (int p = f + 1; p < sequence.length; p++) {
-                columnSum += matrix.getDistance(sequence[f][column], sequence[p][column]);
+                columnSum += matrix.getDistance(sequence[f][columna], sequence[p][columna]);
             }
         }
         return columnSum;
     }
+
 }
 
 
@@ -65,7 +66,6 @@ class SumOfPairs(Score):
 
     @staticmethod
     def is_minimization() -> bool:
-        return False
-
+        return False;
  */
 
