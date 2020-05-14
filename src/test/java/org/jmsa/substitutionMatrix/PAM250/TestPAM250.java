@@ -13,7 +13,7 @@ public class TestPAM250 {
     @Test
     public void testShouldReturnMinus8() {
         p250 = new PAM250();
-        double expectedValue = -8D;
+        double expectedValue = -8;
         double obtainedValue = p250.getGapPenalty();
         assertEquals(expectedValue, obtainedValue);
     }
@@ -21,11 +21,29 @@ public class TestPAM250 {
     @Test
     public void testShouldReturn10() {
         p250 = new PAM250(-10D);
-        double expectedValue = -10;
+        double expectedValue = -10D;
         double obtainedValue = p250.getGapPenalty();
         assertEquals(expectedValue, obtainedValue);
 
     }
+
+    //Comprueba que al introducirle como parámetro el gapPenalty, las distancias que proporciona siguen siendo correctas
+    @Test
+    public void testShoulReturnDistancesMatrixVer1() {
+        p250 = new PAM250(-10D);
+        assertEquals(-10D, p250.getDistance('A', '-'));
+        assertEquals(-10D, p250.getDistance('-', 'S'));
+        assertEquals(1, p250.getDistance('-', '-'));
+        assertEquals(0, p250.getDistance('X', 'A'));
+        assertEquals(-4, p250.getDistance('Y', 'R'));
+        assertEquals(-4, p250.getDistance('R', 'Y'));
+        assertEquals(12, p250.getDistance('C', 'C'));
+        assertEquals(-6, p250.getDistance('W', 'P'));
+        assertEquals(6, p250.getDistance('H', 'H'));
+
+    }
+
+    /*
 
     @BeforeEach
     public void setUp() {
@@ -47,6 +65,7 @@ public class TestPAM250 {
 
     }
 
+    //De la forma en la que está planteado, no tiene sentido
     @Test
     public void testShouldReturnGapPenaltyCase2() {
         double expectedValue = p250.getGapPenalty();
@@ -58,7 +77,8 @@ public class TestPAM250 {
     }
 
     @Test
-    public void testShoulReturnDistancesMatrix() {
+    public void testShoulReturnDistancesMatrixVer2() {
+        assertEquals(-8, p250.getDistance('A', '-'));
         assertEquals(0, p250.getDistance('X', 'A'));
         assertEquals(-4, p250.getDistance('Y', 'R'));
         assertEquals(-4, p250.getDistance('R', 'Y'));
@@ -66,5 +86,7 @@ public class TestPAM250 {
         assertEquals(-6, p250.getDistance('W', 'P'));
         assertEquals(6, p250.getDistance('H', 'H'));
     }
+
+     */
 
 }

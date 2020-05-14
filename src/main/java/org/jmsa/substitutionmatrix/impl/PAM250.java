@@ -13,35 +13,31 @@ import java.util.*;
  * Hello world!
  */
 public class PAM250 implements SubstitutionMatrix {
-    private Double gapPenalty;
-    private HashMap<List, Integer> subsMat;
+    private Double gapPenalty = null;
+    //ojo con esto
+    private final HashMap<List<String>, Integer> subsMat;
 
 
     public PAM250() {
-        this.gapPenalty = -8D;
-        this.subsMat = readFromFile();
+        this.subsMat = readMatrixFromFile();
     }
 
     public PAM250(Double gp) {
         this.gapPenalty = gp;
-        this.subsMat = readFromFile();
+        this.subsMat = readMatrixFromFile();
     }
 
     public double getDistance(char char1, char char2) {
         List<String> par = new ArrayList<String>();
         par.add(Character.toString(char1));
         par.add(Character.toString(char2));
-        double distance = 1;
+        double distance = 0;
 
-        if (char1 == this.getGapCharacter() & char2 == this.getGapCharacter()) {
-        } else if (char1 == this.getGapCharacter() || char2 == this.getGapCharacter()) {
-            distance = this.getGapPenalty();
-        } else if (!subsMat.containsKey(par)) {
+        if (!subsMat.containsKey(par)){
             Collections.reverse(par);
-            distance = Double.valueOf(subsMat.get(par));
-        } else {
-            distance = Double.valueOf(subsMat.get(par));
         }
+        distance = Double.valueOf(subsMat.get(par));
+
         return distance;
     }
 
@@ -49,39 +45,39 @@ public class PAM250 implements SubstitutionMatrix {
         return '-';
     }
 
-    public double getGapPenalty() {
-        return gapPenalty;
-    }
+    public double getGapPenalty() { return getDistance('A', '-'); }
 
-    private HashMap<List, Integer> readFromFile() {
-        HashMap<List, Integer> subsMatrix = new HashMap<List, Integer>();
-        BufferedReader fileReader = null;
+
+    private HashMap<List<String>, Integer> readMatrixFromFile() {
+        HashMap<List<String>, Integer> substitutionMatrix = new HashMap<List<String>, Integer>();
         String line;
         List<String> guide = null;
         List<String> key1;
         List<String> key2;
-        Integer value;
-
-        try {
-            fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))));
+        int value;
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))))) {
             while ((line = fileReader.readLine()) != null) {
-                if (!line.startsWith("#") & !line.startsWith("*")) {
+                if (!line.startsWith("#")) {
                     List<String> lineMatrix = Arrays.asList(line.trim().split("\\s+"));
                     if (line.startsWith(" ")) {
                         guide = lineMatrix;
-                    } else {
-                        for (int i = 0; i < guide.size() - 2; i++) {
-                            key1 = new ArrayList<>();
-                            key1.add(lineMatrix.get(0));
-                            key1.add(guide.get(i));
-                            key2 = new ArrayList<>();
-                            key2.add(guide.get(i));
-                            key2.add(lineMatrix.get(0));
+                    } else for (int i = 0; i < Objects.requireNonNull(guide).size(); i++) {
+                        key1 = new ArrayList<>();
+                        key2 = new ArrayList<>();
+                        key1.add(lineMatrix.get(0));
+                        key1.add(guide.get(i));
 
-                            if (!subsMatrix.containsKey(key1) & !subsMatrix.containsKey(key2)) {
+                        key2.add(guide.get(i));
+                        key2.add(lineMatrix.get(0));
+
+                        if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
+
+                            if(key1.contains(getGapCharacter()) & gapPenalty != null){
+                                value = gapPenalty.intValue();
+                            } else {
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
-                                subsMatrix.put(key1, value);
                             }
+                            substitutionMatrix.put(key1, value);
                         }
                     }
                 }
@@ -92,25 +88,21 @@ public class PAM250 implements SubstitutionMatrix {
         } catch (IOException e) {
             System.out.println("An IO error has occured: " + e.getMessage());
             System.exit(1);
-        } finally {
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e) {
-                    // nothing
-                }
-            }
         }
-        return subsMatrix;
+        // nothing
+        return substitutionMatrix;
     }
 
-    /*
-    public static void main(String[] args) {
-        PAM250 p250 = new PAM250();
-        p250.readFromFile();
+
+    public static void main(String[] args) throws IOException {
+
+        PAM250 p250 = new PAM250(-10D);
+        System.out.println(p250.readMatrixFromFile());
+        System.out.println(p250.getDistance('A', '-'));
+
     }
-    */
+
+
 }
-
 
 
