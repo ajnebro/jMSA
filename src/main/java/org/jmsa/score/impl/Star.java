@@ -21,12 +21,9 @@ public class Star implements Score {
 
     for (int columnSequence = 0; columnSequence < sequence[0].length; columnSequence++) {
       /* 1. We select the most repeated Aa from all sequences in the column columnSequence.
-      To do this we create two arrays with the same size. In one of them we store the char
-      corresponding to our Aa, and the other stores its frequency
+      To do this we create a map in which we store the char
+      corresponding to our Aa and its frequency
        */
-      // 1. Seleccionamos el aa más repetido de todas las secuencias en la posición (o columna)
-      // columnSequence. Para ello creamos dos arrays con la misma longitud
-      // En uno guardamos el char del aa y en el otro su frecuencia
 
       HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
 
@@ -50,12 +47,10 @@ public class Star implements Score {
         }
       }
       // 2. We compute the puntuation for this column
-      // 2. Calculamos la puntuación para esta columna
       for (char[] chars : sequence) {
         double distance = scoreMatrix.getDistance(moreRepeated, chars[columnSequence]);
 
         // 3. We add the distance to the total result we have to return
-        // 3. Sumamos la distancia al resultado total a devolver
         result = result + distance;
       }
     }
