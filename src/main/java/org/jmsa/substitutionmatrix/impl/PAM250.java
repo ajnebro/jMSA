@@ -1,7 +1,6 @@
 package org.jmsa.substitutionmatrix.impl;
 
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,9 +28,9 @@ public class PAM250 implements SubstitutionMatrix {
         List<String> par = new ArrayList<String>();
         par.add(Character.toString(char1));
         par.add(Character.toString(char2));
-        double distance = 0;
+        double distance;
 
-        if (!subsMat.containsKey(par)){
+        if (!subsMat.containsKey(par)) {
             Collections.reverse(par);
         }
         distance = Double.valueOf(subsMat.get(par));
@@ -42,7 +41,9 @@ public class PAM250 implements SubstitutionMatrix {
         return '-';
     }
 
-    public double getGapPenalty() { return getDistance('A', '-'); }
+    public double getGapPenalty() {
+        return getDistance('A', '-');
+    }
 
     private HashMap<List<String>, Integer> readMatrixFromFile() {
         HashMap<List<String>, Integer> substitutionMatrix = new HashMap<List<String>, Integer>();
@@ -51,7 +52,10 @@ public class PAM250 implements SubstitutionMatrix {
         List<String> key1;
         List<String> key2;
         int value;
-        try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))))) {
+        BufferedReader fileReader = null;
+
+        try {
+            fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))));
             while ((line = fileReader.readLine()) != null) {
                 if (!line.startsWith("#")) {
                     List<String> lineMatrix = Arrays.asList(line.trim().split("\\s+"));
@@ -68,8 +72,10 @@ public class PAM250 implements SubstitutionMatrix {
 
                         if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
 
-                            if((key1.contains(Character.toString(getGapCharacter())) != key2.contains(Character.toString(getGapCharacter()))) && gapPenalty != null){
+                            if ((key1.get(0).equals(Character.toString(getGapCharacter())) ^ key1.get(1).equals(Character.toString(getGapCharacter())))
+                                    && gapPenalty != null) {
                                 value = gapPenalty.intValue();
+
                             } else {
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
                             }
@@ -84,23 +90,21 @@ public class PAM250 implements SubstitutionMatrix {
         } catch (IOException e) {
             System.out.println("An IO error has occured: " + e.getMessage());
             System.exit(1);
+        } finally {
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    // nothing
+                }
+            }
         }
-        // nothing
         return substitutionMatrix;
     }
-
-
-    /*
-    public static void main(String[] args) throws IOException {
-
-        PAM250 p250 = new PAM250(-10D);
-        System.out.println(p250.readMatrixFromFile());
-        System.out.println(p250.getDistance('A', '-'));
-
-    }
-    */
-
-
 }
+
+
+
+
 
 
