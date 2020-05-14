@@ -6,10 +6,10 @@ Explanation of the scores here ...
 Star
 ----
 The Star method is one of the algorithms used to score multi-sequence alignment.
-It was proposed by Gusfield in 1997 and consists of finding the sequence best aligned
-to the others (center) by scoring in pairs. This method makes use of a substitution matrix.
+It was proposed by Gusfield in 1997 and consists of finding the best aligned sequence
+with the others (center) by scoring in pairs. This method makes use of a substitution matrix.
 
-The following process is performed:
+The following process is carried out:
 
 - Find the scores of all the pairings by forming an score matrix S.
 
