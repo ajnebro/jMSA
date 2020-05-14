@@ -14,9 +14,7 @@ import java.util.*;
  */
 public class PAM250 implements SubstitutionMatrix {
     private Double gapPenalty = null;
-    //ojo con esto
     private final HashMap<List<String>, Integer> subsMat;
-
 
     public PAM250() {
         this.subsMat = readMatrixFromFile();
@@ -37,7 +35,6 @@ public class PAM250 implements SubstitutionMatrix {
             Collections.reverse(par);
         }
         distance = Double.valueOf(subsMat.get(par));
-
         return distance;
     }
 
@@ -46,7 +43,6 @@ public class PAM250 implements SubstitutionMatrix {
     }
 
     public double getGapPenalty() { return getDistance('A', '-'); }
-
 
     private HashMap<List<String>, Integer> readMatrixFromFile() {
         HashMap<List<String>, Integer> substitutionMatrix = new HashMap<List<String>, Integer>();
@@ -72,7 +68,7 @@ public class PAM250 implements SubstitutionMatrix {
 
                         if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
 
-                            if(key1.contains(getGapCharacter()) & gapPenalty != null){
+                            if((key1.contains(Character.toString(getGapCharacter())) != key2.contains(Character.toString(getGapCharacter()))) && gapPenalty != null){
                                 value = gapPenalty.intValue();
                             } else {
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
@@ -94,6 +90,7 @@ public class PAM250 implements SubstitutionMatrix {
     }
 
 
+    /*
     public static void main(String[] args) throws IOException {
 
         PAM250 p250 = new PAM250(-10D);
@@ -101,6 +98,7 @@ public class PAM250 implements SubstitutionMatrix {
         System.out.println(p250.getDistance('A', '-'));
 
     }
+    */
 
 
 }
