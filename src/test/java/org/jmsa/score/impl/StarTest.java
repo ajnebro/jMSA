@@ -4,7 +4,6 @@ import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.org.jmsa.score.impl.Star;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -21,34 +20,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * <p>Case 3: {{'A'}, {'C'}, {'T'}} They are all different, so the program should return 5-4-4 =-3
  *
- * <p>Case 4: { {'A', 'T', 'T', 'C', 'G'}, {'A', 'G', 'A', 'C', 'C'}, {'T', 'C', 'G', 'T', 'A'},
- * {'G', 'G', 'C', 'T', 'A'} } It should return
+ * <p>Case 4: {{'A'}, {'A'}, {'T'}, {'T'}} There's the same quantity of both letters, so we check it
+ * doesn't get mixed up It should return 2
+ *
+ * <p>Case 5: { {'A', 'T', 'T', 'C', 'G'}, {'A', 'G', 'A', 'C', 'C'}, {'T', 'C', 'G', 'T', 'A'},
+ * {'G', 'G', 'C', 'T', 'A'} } It should return 1
  */
 class StarTest {
   private Star star;
 
   class DummySubstitutionMatrix implements SubstitutionMatrix {
     int[][] matrix = {{5, -4, -4, -4}, {-4, 5, -4, -4}, {-4, -4, 5, -4}, {-4, -4, -4, 5}};
-    // creamos una matriz con las distancias
+    // we create a matrix with the distances we'll use to evaluate the method
     private Map<Character, Integer> equivalences = new TreeMap<Character, Integer>();
 
     @Override
     public double getDistance(char char1, char char2) {
-      // rellenamos el mapa con las equivalencias
+      /* we fill the map with the equivalences between letter and number,
+      where A->0, c->1, G->2 and T->3
+       */
       equivalences.put('A', 0);
       equivalences.put('C', 1);
       equivalences.put('G', 2);
       equivalences.put('T', 3);
 
-      int int1 = equivalences.get(char1); // creamos dos int para transformar los char en int
+      // we use two int variables to save the transformation from char1 and char2 to int
+      int int1 = equivalences.get(char1);
       int int2 = equivalences.get(char2);
 
+      // we get the distance by looking for the correct position in the matrix
       double distance = matrix[int1][int2];
       return distance;
     }
 
     @Override
     public double getGapPenalty() {
+      // we assume it is 0 to make things easier, since this is just a test
       return 0;
     }
   }
@@ -56,6 +63,7 @@ class StarTest {
   DummySubstitutionMatrix matrix = new DummySubstitutionMatrix();
 
   @BeforeEach
+  // before each test we'll create a Star Object
   public void setup() {
     star = new Star(matrix);
   }
@@ -91,15 +99,6 @@ class StarTest {
   public void fourUnitarySequencesWithSameLetterQuantitiesShouldReturn2() {
     char[][] sequence = {{'A'}, {'A'}, {'T'}, {'T'}};
     double expectedValue = 2;
-    double obtainedValue = star.compute(sequence);
-
-    assertEquals(expectedValue, obtainedValue);
-  }
-
-  @Test
-  public void threeSequencesWithNoEquivalencesShouldReturnMinus6() {
-    char[][] sequence = {{'A','G'}, {'C','C'}, {'T','T'}};
-    double expectedValue = -6;
     double obtainedValue = star.compute(sequence);
 
     assertEquals(expectedValue, obtainedValue);
