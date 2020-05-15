@@ -19,36 +19,15 @@ public class Star implements Score {
 
     // We go through the sequences inside sequence. We assume all sequences have the same size
 
-    for (int columnSequence = 0; columnSequence < sequence[0].length; columnSequence++) {
-      /* 1. We select the most repeated Aa from all sequences in the column columnSequence.
-      To do this we create a map in which we store the char
-      corresponding to our Aa and its frequency
+    for (int posAAinSequence = 0; posAAinSequence < sequence[0].length; posAAinSequence++) {
+      /* 1. We select the most repeated Aa from all sequences in the position posAAinSequence.
+      To do this, we call aaMoreRepeated method.
        */
+      Character moreRepeatedAA = aaMoreRepeated(sequence, posAAinSequence);
 
-      HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
-
-      for (int k = 0; k < sequence.length; k++) {
-        Character letter = sequence[k][columnSequence];
-        if (charFreq.containsKey(sequence[k][columnSequence])) {
-          Integer newFreq = (Integer) charFreq.get(letter) + 1;
-          charFreq.remove(letter);
-          charFreq.put(letter, newFreq);
-        } else {
-          charFreq.put(letter, 1);
-        }
-      }
-      int moreRepeatedFreq = 0;
-      Character moreRepeated = sequence[0][columnSequence];
-
-      for (Map.Entry<Character, Integer> entry : charFreq.entrySet()) {
-        if (entry.getValue() > moreRepeatedFreq) {
-          moreRepeated = entry.getKey();
-          moreRepeatedFreq = entry.getValue();
-        }
-      }
-      // 2. We compute the puntuation for this column
+      // 2. We compute the punctuation for this column
       for (char[] chars : sequence) {
-        double distance = scoreMatrix.getDistance(moreRepeated, chars[columnSequence]);
+        double distance = scoreMatrix.getDistance(moreRepeatedAA, chars[posAAinSequence]);
 
         // 3. We add the distance to the total result we have to return
         result = result + distance;
@@ -56,4 +35,38 @@ public class Star implements Score {
     }
     return (result);
   }
+
+  public Character aaMoreRepeated(char[][] parameterSequence, int parameterPosAAinSequence){
+    /*
+    The aim of this function is to return the Character of the most repeated aa in a determined position
+    of a group of sequences.
+
+      First, we create a map in which we store the char corresponding to our Aa and its frequency.
+      Then, we select the most repeated aa in the map.
+     */
+
+    HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
+
+    for (int numberOfSequence = 0; numberOfSequence < parameterSequence.length; numberOfSequence++) {
+      Character aa = parameterSequence[numberOfSequence][parameterPosAAinSequence];
+      if (charFreq.containsKey(parameterSequence[numberOfSequence][parameterPosAAinSequence])) {
+        Integer newFreq = (Integer) charFreq.get(aa) + 1;
+        charFreq.remove(aa);
+        charFreq.put(aa, newFreq);
+      } else {
+        charFreq.put(aa, 1);
+      }
+    }
+    int moreRepeatedFreq = 0;
+    Character moreRepeatedAA = parameterSequence[0][parameterPosAAinSequence];
+
+    for (Map.Entry<Character, Integer> entry : charFreq.entrySet()) {
+      if (entry.getValue() > moreRepeatedFreq) {
+        moreRepeatedAA = entry.getKey();
+        moreRepeatedFreq = entry.getValue();
+      }
+    }
+    return moreRepeatedAA;
+  }
+
 }
