@@ -1,37 +1,33 @@
 package org.jmsa.score;
-
-import org.jmsa.score.Score;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 /**
- * Hello world!
+ * Compute entropy of a given multiple sequence char
  */
 public class Entropy implements Score {
-    public double compute(char[][] sequence) {
+    public double compute(char[][] multipleSequences) {
         double totalNumberOfNucleotides = 0;
-        double entropy = 0;
-        HashMap<Character, Integer> MapOfNucleotideFrequencies = new HashMap<>();
+        HashMap<Character, Integer> MapOfNucleotideWhitTimesOfRepetition = new HashMap<>();
         double nucleotideFrequency = 0;
+        double entropyValue = 0;
 
-        for (char[] line : sequence) {
-            for (char nuc : line) {
-                if (nuc != '-') {
-                    if (MapOfNucleotideFrequencies.containsKey(nuc)) {
-                        MapOfNucleotideFrequencies.put(nuc, MapOfNucleotideFrequencies.get(nuc) + 1);
+        for (char[] sequence : multipleSequences) {
+            for (char nucleotide : sequence) {
+                if (nucleotide != '-') {
+                    if (MapOfNucleotideWhitTimesOfRepetition.containsKey(nucleotide)) {
+                        MapOfNucleotideWhitTimesOfRepetition.put(nucleotide, MapOfNucleotideWhitTimesOfRepetition.get(nucleotide) + 1);
                     } else {
-                        MapOfNucleotideFrequencies.put(nuc, 1);
+                        MapOfNucleotideWhitTimesOfRepetition.put(nucleotide, 1);
                     }
                     totalNumberOfNucleotides++;
                 }
             }
         }
-        for (Map.Entry<Character, Integer> entry : MapOfNucleotideFrequencies.entrySet()) {
-            nucleotideFrequency = (double) entry.getValue() / totalNumberOfNucleotides;
-            entropy += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(2));
+
+        for (Map.Entry<Character, Integer> nucleotideInMap : MapOfNucleotideWhitTimesOfRepetition.entrySet()) {
+            nucleotideFrequency = (double) nucleotideInMap.getValue() / totalNumberOfNucleotides;
+            entropyValue += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(2));
         }
-        return entropy;
+        return entropyValue;
     }
 }
