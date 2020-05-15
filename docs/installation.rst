@@ -9,6 +9,7 @@ https://www.jetbrains.com/idea/
 You must have a JDK higher than 8 installed, in this case we have installed JDK 14 but we have used Java 11. The following links will help us how we will have to install it.
 
 For mac: https://onedrive.live.com/?authkey=%21AI8b3TDvYE4hHFE&cid=32B11968BCD8FD82&id=32B11968BCD8FD82%21177234&parId=32B11968BCD8FD82%21177236&o=OneUp
+
 For Windows: https://onedrive.live.com/?authkey=%21AInCWBr6tFC8k78&cid=32B11968BCD8FD82&id=32B11968BCD8FD82%21177244&parId=32B11968BCD8FD82%21177241&o=OneUp
 
 On the other hand, you must download Maven. Here you have two link to how to install maven on your computer:
