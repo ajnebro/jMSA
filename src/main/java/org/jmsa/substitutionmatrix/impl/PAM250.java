@@ -1,6 +1,7 @@
 package org.jmsa.substitutionmatrix.impl;
 
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,94 +14,99 @@ import java.util.*;
  */
 public class PAM250 implements SubstitutionMatrix {
     private Double gapPenalty = null;
-    private final HashMap<List<String>, Integer> subsMat;
+    private final HashMap<List<Character>, Integer> subsMatrix;
 
+    //Constructor that takes default gapPenalty value
+    //This value is taken from substitutionMatrix file (method readMatrixFromFile)
     public PAM250() {
-        this.subsMat = readMatrixFromFile();
+        this.subsMatrix = readMatrixFromFile();
     }
 
+    //Constructor that changes gapPenalty value
     public PAM250(Double gp) {
         this.gapPenalty = gp;
-        this.subsMat = readMatrixFromFile();
+        this.subsMatrix = readMatrixFromFile();
     }
 
+    //This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
     public double getDistance(char char1, char char2) {
-        List<String> par = new ArrayList<String>();
-        par.add(Character.toString(char1));
-        par.add(Character.toString(char2));
+        List<Character> pair = new ArrayList<>();
+        pair.add(char1);
+        pair.add(char2);
         double distance;
 
-        if (!subsMat.containsKey(par)) {
-            Collections.reverse(par);
+        if (!subsMatrix.containsKey(pair)) {
+            Collections.reverse(pair);
         }
-        distance = Double.valueOf(subsMat.get(par));
+        distance = Double.valueOf(subsMatrix.get(pair));
         return distance;
     }
 
+    //Default gapCharacter
     public char getGapCharacter() {
         return '-';
     }
 
+    //GapPenalty value obtained from substitutionMatrix
     public double getGapPenalty() {
         return getDistance('A', '-');
     }
 
-    private HashMap<List<String>, Integer> readMatrixFromFile() {
-        HashMap<List<String>, Integer> substitutionMatrix = new HashMap<List<String>, Integer>();
+
+    private HashMap<List<Character>, Integer> readMatrixFromFile() {
+        HashMap<List<Character>, Integer> substitutionMatrix = new HashMap<>();
         String line;
         List<String> guide = null;
-        List<String> key1;
-        List<String> key2;
+        List<Character> key1;
+        List<Character> key2;
         int value;
-        BufferedReader fileReader = null;
 
-        try {
-            fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))));
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))))) {
             while ((line = fileReader.readLine()) != null) {
+                //The first nine lines start by # -> they don't contain substitutionMatrix distances
                 if (!line.startsWith("#")) {
                     List<String> lineMatrix = Arrays.asList(line.trim().split("\\s+"));
                     if (line.startsWith(" ")) {
+                        //The first line, with amino acids values -> this is the guide to compare with aas in rest of lines
                         guide = lineMatrix;
                     } else for (int i = 0; i < Objects.requireNonNull(guide).size(); i++) {
+                        //Two keys to get the aas in both ways
                         key1 = new ArrayList<>();
                         key2 = new ArrayList<>();
-                        key1.add(lineMatrix.get(0));
-                        key1.add(guide.get(i));
 
-                        key2.add(guide.get(i));
-                        key2.add(lineMatrix.get(0));
+                        key1.add(lineMatrix.get(0).charAt(0));
+                        key1.add(guide.get(i).charAt(0));
+
+                        key2.add(guide.get(i).charAt(0));
+                        key2.add(lineMatrix.get(0).charAt(0));
 
                         if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
-
-                            if ((key1.get(0).equals(Character.toString(getGapCharacter())) ^ key1.get(1).equals(Character.toString(getGapCharacter())))
-                                    && gapPenalty != null) {
+                            //For determinate gapPenalty -> we check if gapPenalty value has been initialized
+                            if ((key1.get(0).equals(getGapCharacter()) ^ key1.get(1).equals(getGapCharacter())) && gapPenalty != null) {
+                                //It changes gapPenalty value in matrix
                                 value = gapPenalty.intValue();
-
                             } else {
+                                //It takes gapPenalty value from substitutionMatrix file (default gapPenalty)
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
                             }
+
                             substitutionMatrix.put(key1, value);
                         }
                     }
                 }
             }
+            //Exception control
         } catch (FileNotFoundException e) {
             System.out.println("File: PAM250 is not found");
             System.exit(1);
         } catch (IOException e) {
             System.out.println("An IO error has occured: " + e.getMessage());
             System.exit(1);
-        } finally {
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e) {
-                    // nothing
-                }
-            }
         }
+
         return substitutionMatrix;
     }
+
 }
 
 

@@ -12,6 +12,7 @@ public class TestSubstitutionMatrix {
     private PAM250 pam250;
     private Blosum62 blosum62;
 
+    //PAM250 tests
     @Test
     public void testShouldReturnMinus8VerP250SubsMat() {
         SubstitutionMatrix p250 = new PAM250();
@@ -65,7 +66,7 @@ public class TestSubstitutionMatrix {
         assertEquals(6, pam250.getDistance('H', 'H'));
     }
 
-    //Comprueba que al introducirle como parámetro el gapPenalty, las distancias que nos proporcionan siguen siendo correctas
+    //Check correct distances when we introduce different gapPenalty parameter
     @Test
     public void testShoulReturnDistancesMatrixWithDifferentGPVerP250() {
         pam250 = new PAM250(-10D);
@@ -81,7 +82,7 @@ public class TestSubstitutionMatrix {
     }
 
 
-    //Test de Blossum
+    //Blosum62 tests
     @Test
     public void testShouldReturnMinus8VerB62() {
         blosum62 = new Blosum62();
