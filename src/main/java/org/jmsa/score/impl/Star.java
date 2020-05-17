@@ -40,6 +40,10 @@ public class Star implements Score {
     /*
     The aim of this function is to return the Character of the most repeated aa in a determined position
     of a group of sequences.
+<<<<<<< HEAD
+=======
+
+>>>>>>> c53820db42ed621f0e0bdf3e18e9bc4ae4a2b9e6
       First, we create a map in which we store the char corresponding to our Aa and its frequency.
       Then, we select the most repeated aa in the map.
      */
@@ -68,4 +72,8 @@ public class Star implements Score {
     return moreRepeatedAA;
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c53820db42ed621f0e0bdf3e18e9bc4ae4a2b9e6
