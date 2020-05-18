@@ -27,7 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e9aaa54-372c-4192-8698-57d2ea427a34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/SumOfPairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/SumOfPairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jMSA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jMSA.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
