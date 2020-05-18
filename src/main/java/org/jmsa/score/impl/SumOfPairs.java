@@ -1,31 +1,22 @@
 package org.jmsa.score.impl;
-
 import org.jmsa.score.Score;
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
-
 
 /**
  * Hello world!
  */
 public class SumOfPairs implements Score {
-
     private SubstitutionMatrix matrix;
-
     public SumOfPairs(SubstitutionMatrix m) {
         matrix = m;
-
     }
-
     public double compute(char[][] sequence) {
-
         double totalSum = 0;
-
         for (int c = 0; c < sequence[0].length; c++) {
             totalSum += sumCol(sequence,c);
             }
         return totalSum;
         }
-
     public double sumCol(char[][] sequence,int columna){
 
         double columnSum=0;
