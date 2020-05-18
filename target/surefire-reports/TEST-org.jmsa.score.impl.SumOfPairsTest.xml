@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.jmsa.score.impl.SumOfPairsTest" time="0.498" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.jmsa.score.impl.SumOfPairsTest" time="0.697" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\JuanS\AppData\Local\Temp\surefire55905876106536613\surefirebooter8366905472723961517.jar C:\Users\JuanS\AppData\Local\Temp\surefire55905876106536613 2020-05-18T13-00-38_187-jvmRun1 surefire1117705914471428349tmp surefire_04832553283189167313tmp"/>
+    <property name="sun.java.command" value="C:\Users\JuanS\AppData\Local\Temp\surefire15898148848424541553\surefirebooter14772732006644103229.jar C:\Users\JuanS\AppData\Local\Temp\surefire15898148848424541553 2020-05-18T13-03-36_066-jvmRun1 surefire9781085007242174649tmp surefire_08461049508457607769tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\JuanS\IdeaProjects\jMSA\target\test-classes;C:\Users\JuanS\IdeaProjects\jMSA\target\classes;C:\Users\JuanS\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.1\junit-jupiter-engine-5.6.1.jar;C:\Users\JuanS\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\JuanS\.m2\repository\org\junit\platform\junit-platform-engine\1.6.1\junit-platform-engine-1.6.1.jar;C:\Users\JuanS\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\JuanS\.m2\repository\org\junit\platform\junit-platform-commons\1.6.1\junit-platform-commons-1.6.1.jar;C:\Users\JuanS\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.1\junit-jupiter-api-5.6.1.jar;C:\Users\JuanS\.m2\repository\org\mockito\mockito-core\3.3.3\mockito-core-3.3.3.jar;C:\Users\JuanS\.m2\repository\net\bytebuddy\byte-buddy\1.10.5\byte-buddy-1.10.5.jar;C:\Users\JuanS\.m2\repository\net\bytebuddy\byte-buddy-agent\1.10.5\byte-buddy-agent-1.10.5.jar;C:\Users\JuanS\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\JuanS\AppData\Local\Temp\surefire55905876106536613\surefirebooter8366905472723961517.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\JuanS\AppData\Local\Temp\surefire15898148848424541553\surefirebooter14772732006644103229.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.1+7"/>
@@ -55,8 +55,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="allAlignment" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.47"/>
-  <testcase name="testneg27" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.007"/>
-  <testcase name="allGaps" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.005"/>
-  <testcase name="test0" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.006"/>
+  <testcase name="allAlignment" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.658"/>
+  <testcase name="testneg27" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.009"/>
+  <testcase name="allGaps" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.007"/>
+  <testcase name="test0" classname="org.jmsa.score.impl.SumOfPairsTest" time="0.007"/>
 </testsuite>
