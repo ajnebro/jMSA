@@ -19,8 +19,13 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
    alignment_tools.rst
    how_to_score.rst
    scores.rst
+<<<<<<< HEAD
    substitututionMatix.rst
+=======
+   utils.rst
+>>>>>>> 485c94bf76a23afb1ddc4f0076e5b053bf2e9a33
    examples.rst
+   utils.rst
 
 
 .. Indices and tables
