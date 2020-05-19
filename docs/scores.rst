@@ -116,6 +116,7 @@ Finally we divide this counter between the total length of the sequence. To obta
  
 
 Percentage of totally conserved columns
+---------------------------------------
 
 The percentage of conserved columns is very important because it has many aplications in studies of phylogenetics and taxonomy, in medical researches and in functional annotation.
   - Phylogenetics and taxonomy: the sets of conserved columns can be used to create an evolution tree to study the species and their ancestors.
@@ -126,6 +127,7 @@ The percentage of conserved columns is very important because it has many aplica
 
 Entropy
 -------
+
 - Definition:
 
 Entropy of Shanon can be defined as grade of disorder that a random variable can generate. It is related to the uncertainty that exists in
