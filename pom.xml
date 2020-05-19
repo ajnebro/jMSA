@@ -25,29 +25,10 @@
       <version>5.6.1</version>
       <scope>test</scope>
     </dependency>
-<<<<<<< HEAD
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-          <scope>test</scope>
-      </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-=======
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>3.3.3</version>
->>>>>>> 485c94bf76a23afb1ddc4f0076e5b053bf2e9a33
       <scope>test</scope>
     </dependency>
   </dependencies>
