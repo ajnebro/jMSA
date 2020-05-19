@@ -42,6 +42,8 @@ MUSCLE: This is a log-expectation multiple sequence alignment that improves prog
 .. figure:: /resources/images/MUSCLE.png
 
 3. Consensus methods
+--------------
+
 Consensus methods attempt to find the optimal multiple sequence alignment given multiple different alignments of the same set of sequences. There are two commonly used consensus methods:
  
 M-COFFEE: It is part of the T-Coffee distribution. The specificity of M-Coffee is that rather than computing a multiple sequence alignment on its own, it uses other packages to compute the alignments. It then uses T-Coffee to combine all these alignments into one unique final alignment. In practice, this means that if you are using several packages to generate your alignments, you can combine these alignments rather than choosing one of them. In practice we have shown that the combined alignments are on average better than the initial alignments. Furthermore, the regions where they agree tend to be correctly aligned.
@@ -51,6 +53,8 @@ M-COFFEE: It is part of the T-Coffee distribution. The specificity of M-Coffee i
 MergeAlign: is a program that constructs a consensus multiple sequence alignment from multiple independent alignments. Using dynamic programming it efficiently combines individual multiple sequence alignments to generate a consensus that is maximally representative of all constituent alignments. Using Merge Align to combine multiple sequence alignments generated using different matrices of amino acid substitution produces multiple sequence alignments that are more robust and more accurate than alignments generated using only a single matrix of amino acid substitution.
  
 4. Hidden Markov models
+--------------
+
 Hidden Markov models are probabilistic models that can assign likelihoods to all possible combinations of gaps, matches, and mismatches to determine the most likely MSA or set of possible MSAs. HMMs can produce both global and local alignments. Although HMM-based methods have been developed relatively recently, they offer significant improvements in computational speed, especially for sequences that contain overlapping regions.
 
 POA is Partial Order Alignment, a fast program for multiple sequence alignment in bioinformatics. Its advantages are speed, scalability, sensitivity, and the superior ability to handle branching / indels in the alignment.
@@ -68,7 +72,7 @@ Some tools for this system are the following:
 PRANK: It’s based on an algorithm that treats insertions correctly and avoids over-estimation of the number of deletion events. In addition, PRANK borrows ideas from maximum likelihood methods used in phylogenetics and correctly takes into account the evolutionary distances between sequences. Lastly, PRANK allows for defining a potential structure for sequences to be aligned and then, simultaneously with the alignment, predicts the locations of structural units in the sequences. Let see an example of this tool:
 
 .. figure:: /resources/images/WEBPRANK1.png
-.. figure:: /resources/images/webprank2
+.. figure:: /resources/images/webprank2.png
  
 PAGAN: It’s based on the phylogeny-aware progressive alignment algorithm and uses graphs to describe the uncertainty in the presence of characters at certain sequence positions. However, graphs also allow describing the uncertainty in input sequences and modelling e.g. homopolymer errors in Roche 454 reads, or representing inferred ancestral sequences against which other sequences can then be aligned.
  
