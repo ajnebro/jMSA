@@ -1,9 +1,14 @@
 Tools for multiple sequence alignment
 =====================================
- 
+
 One of the main characteristics that sequence alignment tools present is the type of heuristic algorithm that they implement to achieve their objective. During this document the explanation and differences of each of these techniques will be shown along with certain examples of tools that make use of them.
- 
+
+For all of examples we will use as input the file *BB11001.tfa* whose content is shown below:
+
+ .. figure:: /resources/images/SecuenciaEjemplo.png
+
 1. Progressive alignment construction
+-------------------------------------
  
 This is the most widely used approach for multiple sequence alignments. It uses a heuristic search known as a progressive technique, also called a hierarchical or tree method.
  
@@ -13,34 +18,36 @@ The main problem is that when mistakes are made at any stage of the growth of th
  
 The best-known tool examples for this system are the Clustal family, T-Coffee and PSAlign (semi-progressive):
  
-Clustal: This is the most popular progressive alignment method currently. It makes use of seeded guide trees and HMM profile-profile techniques to generate alignments between three or more sequences. Produces biologically significant multiple sequence alignments of divergent sequences. Evolutionary relationships can be seen through Cladograms or Philograms.
+        - **Clustal**: This is the most popular progressive alignment method currently. It makes use of seeded guide trees and HMM profile-profile techniques to generate alignments between three or more sequences. Produces biologically significant multiple sequence alignments of divergent sequences. Evolutionary relationships can be seen through Cladograms or Philograms.
 
-.. figure:: /resources/images/ClustalW.png
- 
-T-Coffee: It is slower than Clustal and its derivatives but generally produces more accurate alignments for distantly related sequence sets. T-Coffee calculates pairwise alignments by combining the direct alignment of the pair with indirect alignments that aligns each sequence of the pair to a third sequence. It uses the output from Clustal as well as another local alignment program LALIGN, which finds multiple regions of local alignment between two sequences. The resulting alignment and phylogenetic tree are used as a guide to produce new and more accurate weighting factors.
+        .. figure:: /resources/images/ClustalW.png
 
-.. figure:: /resources/images/T-Coffee.png
- 
-PSAlign: Tool that implements a semi-progressive method that improves the quality of the alignment and does not use a lossy heuristic while running in polynomial time.
+        - **T-Coffee**: It is slower than Clustal and its derivatives but generally produces more accurate alignments for distantly related sequence sets. T-Coffee calculates pairwise alignments by combining the direct alignment of the pair with indirect alignments that aligns each sequence of the pair to a third sequence. It uses the output from Clustal as well as another local alignment program LALIGN, which finds multiple regions of local alignment between two sequences. The resulting alignment and phylogenetic tree are used as a guide to produce new and more accurate weighting factors.
+
+        .. figure:: /resources/images/T-Coffee.png
+            :scale: 80
+
+        - **PSAlign**: Tool that implements a semi-progressive method that improves the quality of the alignment and does not use a lossy heuristic while running in polynomial time.
  
 2. Iterative methods
+--------------------
  
 These work similarly to progressive methods but repeatedly realign the initial sequences and add new sequences to the growing MSA. Their main feature is that they can revert to previously calculated pairwise alignments or sub-MSAs that incorporate subsets of the query sequence as a means of optimizing an overall objective function such as finding a high-quality alignment score.
  
 The best-known tools that make use of this approach are PRRN / PRRP, CHAOS / DIALIGN and MUSCLE.
  
-PRRN / PRRP: Uses a scaling algorithm to optimize your MSA alignment score and iteratively corrects both alignment weights and locally diverging or "hollow" regions of the growing MSA. PRRP works best when refining a previously built alignment by a faster method.
+        - **PRRN / PRRP**: Uses a scaling algorithm to optimize your MSA alignment score and iteratively corrects both alignment weights and locally diverging or "hollow" regions of the growing MSA. PRRP works best when refining a previously built alignment by a faster method.
  
-.. figure:: /resources/images/PRRN.png
+        .. figure:: /resources/images/PRRN.png
 
-CHAOS / DIALOG: Take an unusual approach of focusing closely on local alignments between subsegments or sequence motifs without introducing a gap penalty. Alignment of the individual motifs is accomplished with a matrix representation similar to a dot matrix graph in a pairwise alignment. An alternative method is implemented that uses fast local alignments as anchor points or "seeds" for a slower global alignment procedure.
+        - **CHAOS / DIALOG**: Take an unusual approach of focusing closely on local alignments between subsegments or sequence motifs without introducing a gap penalty. Alignment of the individual motifs is accomplished with a matrix representation similar to a dot matrix graph in a pairwise alignment. An alternative method is implemented that uses fast local alignments as anchor points or "seeds" for a slower global alignment procedure.
 
-.. figure:: /resources/images/CHAOS+DIALIGN.png
+        .. figure:: /resources/images/CHAOS+DIALIGN.png
 
-MUSCLE: This is a log-expectation multiple sequence alignment that improves progressive methods with a more accurate distance measurement to evaluate the relationship of two sequences. The distance measurement is updated between the iteration stages.
+        - **MUSCLE**: This is a log-expectation multiple sequence alignment that improves progressive methods with a more accurate distance measurement to evaluate the relationship of two sequences. The distance measurement is updated between the iteration stages.
 
-.. figure:: /resources/images/MUSCLE.png
-
+        .. figure:: /resources/images/MUSCLE.png
+        
 3. Consensus methods
 --------------
 
