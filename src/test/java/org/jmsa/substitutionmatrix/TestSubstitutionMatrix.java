@@ -1,4 +1,4 @@
-package org.jmsa.substitutionMatrix;
+package org.jmsa.substitutionmatrix;
 
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import org.jmsa.substitutionmatrix.impl.Blosum62;

@@ -9,33 +9,31 @@ import org.jmsa.substitutionmatrix.SubstitutionMatrix;
  */
 public class SumOfPairs implements Score {
 
-    private SubstitutionMatrix matrix;
+  private SubstitutionMatrix matrix;
 
-    public SumOfPairs(SubstitutionMatrix m) {
-        matrix = m;
+  public SumOfPairs(SubstitutionMatrix m) {
+    matrix = m;
+  }
 
+  public double compute(char[][] sequence) {
+
+    double totalSum = 0;
+
+    for (int c = 0; c < sequence[0].length; c++) {
+      totalSum += sumCol(sequence, c);
     }
+    return totalSum;
+  }
 
-    public double compute(char[][] sequence) {
-
-        double totalSum = 0;
-
-        for (int c = 0; c < sequence[0].length; c++) {
-            totalSum += sumCol(sequence,c);
-            }
-        return totalSum;
-        }
-
-    public double sumCol(char[][] sequence,int columna){
-
-        double columnSum=0;
-        for (int f = 0; f < sequence.length - 1; f++) {
-            for (int p = f + 1; p < sequence.length; p++) {
-                columnSum += matrix.getDistance(sequence[f][columna], sequence[p][columna]);
-            }
-        }
-        return columnSum;
+  public double sumCol(char[][] sequence, int columna) {
+    double columnSum = 0;
+    for (int f = 0; f < sequence.length - 1; f++) {
+      for (int p = f + 1; p < sequence.length; p++) {
+        columnSum += matrix.getDistance(sequence[f][columna], sequence[p][columna]);
+      }
     }
+    return columnSum;
+  }
 
 }
 

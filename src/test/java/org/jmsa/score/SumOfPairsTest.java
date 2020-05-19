@@ -1,5 +1,6 @@
-package org.jmsa.score.impl;
+package org.jmsa.score;
 
+import org.jmsa.score.impl.SumOfPairs;
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
