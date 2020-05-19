@@ -2,19 +2,95 @@ package org.jmsa.substitutionmatrix.impl;
 
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Hello world!
  */
 public class Blosum62 implements SubstitutionMatrix {
+
+  private final Map<List<Character>, Double> substitutionMatrix;
+  private final double gapPenalty;
+
+  //Constructor that takes default gapPenalty value
+  public Blosum62() {
+    this(-8D);
+  }
+
+  //Constructor that changes gapPenalty value
+  public Blosum62(double gP) {
+    gapPenalty = gP;
+    substitutionMatrix = matrixReader();
+  }
+
+  //Method that gets substitutionMatrix distances
   public double getDistance(char char1, char char2) {
-    return 0 ;
+    double result;
+    //First we check both cases: if there are gapCharacters in parameters -> we determinate correct distances
+    if (char1 == '-' & char2 == '-') {
+      result = 1;
+    } else if (char1 == '-' || char2 == '-') {
+      result = this.getGapPenalty();
+    } else {
+      //Distance from substitutionMatrix
+      if (substitutionMatrix.get(List.of(char1, char2)) != null) {
+        result = substitutionMatrix.get(List.of(char1, char2));
+      } else {
+        result = substitutionMatrix.get(List.of(char2, char1));
+      }
+    }
+    return result;
   }
 
   public char getGapCharacter() {
-    return '-' ;
+    return '-';
   }
 
   public double getGapPenalty() {
-    return 0 ;
+    return gapPenalty;
   }
+
+  //Method that reads substitutionMatrix values from file
+  private Map<List<Character>, Double> matrixReader() {
+
+    Map<List<Character>, Double> substitutionMatrix = new HashMap<>();
+    String line;
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/Blosum62.txt"))))) {
+      while ((line = reader.readLine()) != null) {
+        String[] parts = line.split(":", 2);
+        //We find two parts: key = pair aas, value = distance
+        if (parts.length >= 2) {
+          //It saves pair aas
+          String[] lp = parts[0].split(",");
+          List<Character> key = List.of(lp[0].charAt(0), lp[1].charAt(0));
+          //It gets distance
+          String value = parts[1];
+          substitutionMatrix.put(key, Double.valueOf(value));
+        } else {
+          System.out.println("ignoring line: " + line);
+        }
+      }
+      //Exception control
+    } catch (FileNotFoundException e) {
+      System.out.println("File: Blosum62 is not found");
+      System.exit(1);
+    } catch (IOException e) {
+      System.out.println("An IO error has occured: " + e.getMessage());
+      System.exit(1);
+    }
+
+    return substitutionMatrix;
+  }
+
+
 }
+
+

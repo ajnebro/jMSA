@@ -27,7 +27,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e9aaa54-372c-4192-8698-57d2ea427a34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jMSA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jMSA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/entropy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/image/Captura.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/CHAOS+DIALIGN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/ClustalW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/M-Coffee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/MUSCLE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/PRRN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/T-Coffee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/WEBPRANK1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/images/webprank2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/utils.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/BB11001.tfa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/Blosum62.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/PAM250" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/correctSeqWithBlanks.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/correctSequence.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/score/PercentageOfNonGapsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/score/PercentageOfTotallyConservedColumnsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/score/StarTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/substitutionmatrix/TestSubstitutionMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/util/ReadMSATest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/alignment_tools.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/alignment_tools.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/how_to_score.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/how_to_score.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/problem.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/problem.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/resources/image/Captura1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scores.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scores.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jMSA.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/Entropy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/Entropy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/PercentageOfNonGaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/PercentageOfNonGaps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/PercentageOfTotallyConservedColumns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/PercentageOfTotallyConservedColumns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/Star.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/Star.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/SumOfPairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/score/impl/SumOfPairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/SubstitutionMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/SubstitutionMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/impl/Blosum62.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/impl/Blosum62.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/impl/PAM250.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/substitutionmatrix/impl/PAM250.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jmsa/util/ReadMSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jmsa/util/ReadMSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/jmsa/score/impl/SumOfPairsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/jmsa/score/SumOfPairsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +105,22 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SumOfPairsTest">
+  <component name="RunManager" selected="JUnit.SumOfPairsTest (1)">
+    <configuration name="SumOfPairsTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jMSA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.jmsa.score.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.jmsa.score" />
+      <option name="MAIN_CLASS_NAME" value="org.jmsa.score.SumOfPairsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SumOfPairsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jMSA" />
       <extension name="coverage">
@@ -112,22 +168,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SumOfPairsTest.test0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jMSA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.jmsa.score.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.jmsa.score.impl" />
-      <option name="MAIN_CLASS_NAME" value="org.jmsa.score.impl.SumOfPairsTest" />
-      <option name="METHOD_NAME" value="test0" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SumOfPairsTest.testneg27" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jMSA" />
       <extension name="coverage">
@@ -146,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SumOfPairsTest (1)" />
         <item itemvalue="JUnit.SumOfPairsTest" />
         <item itemvalue="JUnit.SumOfPairsTest.testneg27" />
         <item itemvalue="JUnit.SumOfPairsTest.allGaps" />
         <item itemvalue="JUnit.SumOfPairsTest.allAlignment" />
-        <item itemvalue="JUnit.SumOfPairsTest.test0" />
       </list>
     </recent_temporary>
   </component>
