@@ -1,4 +1,4 @@
-package org.jmsa;
+package org.jmsa.score;
 
 import org.jmsa.score.impl.PercentageOfNonGaps;
 import org.junit.jupiter.api.BeforeEach;
