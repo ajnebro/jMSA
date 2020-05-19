@@ -9,10 +9,9 @@ another one. The simplest matrix  would be the 'match/mismatch' one, which asign
 to the positions where both sequences concur adn a negative value when they don't.
 
 .. note::
-
-Substitution matrices are used to score alignements between sequences, i. e., to see the similarity
-degree between them. The higher the score, the better, and the alignment with the highest score
-between all possible alignements is called "optimun alignment".
+    Substitution matrices are used to score alignements between sequences, i. e., to see the similarity
+    degree between them. The higher the score, the better, and the alignment with the highest score
+    between all possible alignements is called "optimun alignment".
 
 
 PAM
@@ -29,8 +28,8 @@ Blossum
 ^^^^^^^
 
 The Blossum matrix (Block-sum) uses a more direct approach when estimating target frequencies 
-Said ‘blocks’ consist of aligned protein segments that are relatively well-conserved
- across whole protein families.
+Said ‘blocks’ consist of aligned protein segments that are relatively well-conserved across whole 
+protein families.
 
 .. image:: images/Blossum62.PNG
 
