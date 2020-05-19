@@ -116,7 +116,13 @@ Finally we divide this counter between the total length of the sequence. To obta
  
 
 Percentage of totally conserved columns
----------------------------------------
+
+The percentage of conserved columns is very important because it has many aplications in studies of phylogenetics and taxonomy, in medical researches and in functional annotation.
+  - Phylogenetics and taxonomy: the sets of conserved columns can be used to create an evolution tree to study the species and their ancestors.
+  - In medical researches the applications of the MSA and specifically the amount of conserved columns it's used to identifi genetics diseases, in the compatibility between species so we can study the pathology on lab organisms instead of humans...
+  - Identifying the conserved columns can be very helpful to predict functional sequences such as genes, besides, if the secuences have a known function, they can also be used to predict the function of those proteins; in order to create databases.
+ 
+ Our class measures the amount of conserved columns by implementing the class score, and finding the sequences who are conserved and then returning the percentege ot total conserved columns of the array.
 
 Entropy
 -------
