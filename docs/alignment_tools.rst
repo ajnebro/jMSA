@@ -15,11 +15,11 @@ The best-known tool examples for this system are the Clustal family, T-Coffee an
  
 Clustal: This is the most popular progressive alignment method currently. It makes use of seeded guide trees and HMM profile-profile techniques to generate alignments between three or more sequences. Produces biologically significant multiple sequence alignments of divergent sequences. Evolutionary relationships can be seen through Cladograms or Philograms.
 
-.. figure:: /resources/data/ClustalW.png
+.. figure:: /resources/images/ClustalW.png
  
 T-Coffee: It is slower than Clustal and its derivatives but generally produces more accurate alignments for distantly related sequence sets. T-Coffee calculates pairwise alignments by combining the direct alignment of the pair with indirect alignments that aligns each sequence of the pair to a third sequence. It uses the output from Clustal as well as another local alignment program LALIGN, which finds multiple regions of local alignment between two sequences. The resulting alignment and phylogenetic tree are used as a guide to produce new and more accurate weighting factors.
 
-.. figure:: /resources/data/T-Coffee.png
+.. figure:: /resources/images/T-Coffee.png
  
 PSAlign: Tool that implements a semi-progressive method that improves the quality of the alignment and does not use a lossy heuristic while running in polynomial time.
  
@@ -31,22 +31,22 @@ The best-known tools that make use of this approach are PRRN / PRRP, CHAOS / DIA
  
 PRRN / PRRP: Uses a scaling algorithm to optimize your MSA alignment score and iteratively corrects both alignment weights and locally diverging or "hollow" regions of the growing MSA. PRRP works best when refining a previously built alignment by a faster method.
  
-.. figure:: /resources/data/PRRN.png
+.. figure:: /resources/images/PRRN.png
 
 CHAOS / DIALOG: Take an unusual approach of focusing closely on local alignments between subsegments or sequence motifs without introducing a gap penalty. Alignment of the individual motifs is accomplished with a matrix representation similar to a dot matrix graph in a pairwise alignment. An alternative method is implemented that uses fast local alignments as anchor points or "seeds" for a slower global alignment procedure.
 
-.. figure:: /resources/data/CHAOS+DIALIGN.png
+.. figure:: /resources/images/CHAOS+DIALIGN.png
 
 MUSCLE: This is a log-expectation multiple sequence alignment that improves progressive methods with a more accurate distance measurement to evaluate the relationship of two sequences. The distance measurement is updated between the iteration stages.
 
-.. figure:: /resources/data/MUSCLE.png
+.. figure:: /resources/images/MUSCLE.png
 
 3. Consensus methods
 Consensus methods attempt to find the optimal multiple sequence alignment given multiple different alignments of the same set of sequences. There are two commonly used consensus methods:
  
 M-COFFEE: It is part of the T-Coffee distribution. The specificity of M-Coffee is that rather than computing a multiple sequence alignment on its own, it uses other packages to compute the alignments. It then uses T-Coffee to combine all these alignments into one unique final alignment. In practice, this means that if you are using several packages to generate your alignments, you can combine these alignments rather than choosing one of them. In practice we have shown that the combined alignments are on average better than the initial alignments. Furthermore, the regions where they agree tend to be correctly aligned.
 
-.. figure:: /resources/data/M-Coffee.png
+.. figure:: /resources/images/M-Coffee.png
 
 MergeAlign: is a program that constructs a consensus multiple sequence alignment from multiple independent alignments. Using dynamic programming it efficiently combines individual multiple sequence alignments to generate a consensus that is maximally representative of all constituent alignments. Using Merge Align to combine multiple sequence alignments generated using different matrices of amino acid substitution produces multiple sequence alignments that are more robust and more accurate than alignments generated using only a single matrix of amino acid substitution.
  
@@ -67,13 +67,13 @@ Some tools for this system are the following:
  
 PRANK: It’s based on an algorithm that treats insertions correctly and avoids over-estimation of the number of deletion events. In addition, PRANK borrows ideas from maximum likelihood methods used in phylogenetics and correctly takes into account the evolutionary distances between sequences. Lastly, PRANK allows for defining a potential structure for sequences to be aligned and then, simultaneously with the alignment, predicts the locations of structural units in the sequences. Let see an example of this tool:
 
-.. figure:: /resources/data/WEBPRANK1.png
-.. figure:: /resources/data/webprank2
+.. figure:: /resources/images/WEBPRANK1.png
+.. figure:: /resources/images/webprank2.png
  
 PAGAN: It’s based on the phylogeny-aware progressive alignment algorithm and uses graphs to describe the uncertainty in the presence of characters at certain sequence positions. However, graphs also allow describing the uncertainty in input sequences and modelling e.g. homopolymer errors in Roche 454 reads, or representing inferred ancestral sequences against which other sequences can then be aligned.
  
 ProGraphMSA: It’s a state-of-the-art multiple sequence alignment tool which produces phylogenetically sensible gap patterns while maintaining robustness by allowing alternative splicings and errors in the branching pattern of the guide tree. This is achieved by incorporating a graph-based sequence representation and combines it with the advantages of the phylogeny-aware algorithm in Prank. Further, we account for variations in the substitution pattern by using estimated amino acid frequencies and by implementing context-specific profiles.
- 
+
 6. Motif finding
 A motif is a sequence pattern that occurs repeatedly in a group of related protein or DNA sequences and is often associated with some biological function. Motif finding, also known as profile analysis, is a method of locating sequence motifs in global MSAs that is both a means of producing a better MSA and a means of producing a scoring matrix for use in searching other sequences for similar motifs. A variety of methods for isolating the motifs have been developed, but all are based on identifying short highly conserved patterns within the larger alignment and constructing a matrix similar to a substitution matrix that reflects the amino acid or nucleotide composition of each position in the putative motif. The alignment can then be refined using these matrices. In standard profile analysis, the matrix includes entries for each possible character as well as entries for gaps. Alternatively, statistical pattern-finding algorithms can identify motifs as a precursor to an MSA rather than as a derivation. In many cases when the query set contains only a small number of sequences or contains only highly related sequences, pseudocounts are added to normalize the distribution reflected in the scoring matrix.
  
