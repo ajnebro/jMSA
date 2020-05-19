@@ -20,7 +20,7 @@ The best-known tool examples for this system are the Clustal family, T-Coffee an
  
         - **Clustal**: This is the most popular progressive alignment method currently. It makes use of seeded guide trees and HMM profile-profile techniques to generate alignments between three or more sequences. Produces biologically significant multiple sequence alignments of divergent sequences. Evolutionary relationships can be seen through Cladograms or Philograms.
 
-        .. figure:: /resources/images/ClustalW.png
+        .. figure:: docs/resources/images/ClustalW.png
  
         - **T-Coffee**: It is slower than Clustal and its derivatives but generally produces more accurate alignments for distantly related sequence sets. T-Coffee calculates pairwise alignments by combining the direct alignment of the pair with indirect alignments that aligns each sequence of the pair to a third sequence. It uses the output from Clustal as well as another local alignment program LALIGN, which finds multiple regions of local alignment between two sequences. The resulting alignment and phylogenetic tree are used as a guide to produce new and more accurate weighting factors.
 
