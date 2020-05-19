@@ -34,7 +34,7 @@ Said ‘blocks’ consist of aligned protein segments that are relatively well-c
 .. image:: images/Blossum62.PNG
 
 The BLOSUM-62 matrix (which corresponds roughly toPAM-180 and is the one whe will be using) is derived
- by ﬁrst clustering all segments that are more than 62% identical.
+by ﬁrst clustering all segments that are more than 62% identical.
 
 Class structure.
 ----------------
@@ -110,7 +110,7 @@ The getDistance method.
 
 .. code-block:: java
 
-public double getDistance(char char1, char char2) {
+    public double getDistance(char char1, char char2) {
         List<Character> pair = new ArrayList<>();
         pair.add(char1);
         pair.add(char2);
