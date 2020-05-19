@@ -68,7 +68,7 @@ class ReadMSATest {
     public void incorrectSequenceTest(){
 
         //Passing a valid filepath, with the file containing incorrectly aligned sequences
-        assertThrows(RuntimeException.class,()->seqReader.readSequenceFromFastaFile("./resources/data/BB11001.tfa"));
+        assertThrows(RuntimeException.class,()->seqReader.readSequenceFromFastaFile("./resources/data/incorrectSequence.fasta"));
     }
 
     @AfterEach
