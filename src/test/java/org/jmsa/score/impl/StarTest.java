@@ -169,10 +169,10 @@ class StarTest {
   @Test
   public void exampleSequenceShouldReturn1() {
     char[][] sequence = {
-      {'A', 'T', 'T', 'C', 'G'},
-      {'A', 'G', 'A', 'C', 'C'},
-      {'T', 'C', 'G', 'T', 'A'},
-      {'G', 'G', 'C', 'T', 'A'}
+            {'A', 'T', 'T', 'C', 'G'},
+            {'A', 'G', 'A', 'C', 'C'},
+            {'T', 'C', 'G', 'T', 'A'},
+            {'G', 'G', 'C', 'T', 'A'}
     };
     double expectedValue = 1;
     double obtainedValue = star.compute(sequence);
@@ -183,10 +183,10 @@ class StarTest {
   @Test
   public void exampleSequenceShouldReturn1WithMock() {
     char[][] sequence = {
-      {'A', 'T', 'T', 'C', 'G'},
-      {'A', 'G', 'A', 'C', 'C'},
-      {'T', 'C', 'G', 'T', 'A'},
-      {'G', 'G', 'C', 'T', 'A'}
+            {'A', 'T', 'T', 'C', 'G'},
+            {'A', 'G', 'A', 'C', 'C'},
+            {'T', 'C', 'G', 'T', 'A'},
+            {'G', 'G', 'C', 'T', 'A'}
     };
     double expectedValue = 1;
     double obtainedValue = starMock.compute(sequence);
