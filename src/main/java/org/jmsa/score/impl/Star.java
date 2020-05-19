@@ -1,4 +1,4 @@
-package org.jmsa.score;
+package org.jmsa.score.impl;
 
 import org.jmsa.score.Score;
 

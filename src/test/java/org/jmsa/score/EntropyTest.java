@@ -1,5 +1,6 @@
 package org.jmsa.score;
 
+import org.jmsa.score.impl.Entropy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
