@@ -17,37 +17,37 @@ class PercentageOfTotallyConservedColumnsTest {
          las otras más largas si tendrán. Esta prueba ha de devolver 0.
     * */
     private char[][] sequence;
-    private PercentageOfTotallyConservedColumns potcc;
+    private PercentageOfTotallyConservedColumns porcentajeConservedColumns;
 
     @BeforeEach
     public void setUp(){
-        potcc = new PercentageOfTotallyConservedColumns();
+        porcentajeConservedColumns = new PercentageOfTotallyConservedColumns();
     }
     @Test
     public void porcentajeCoincidenTodasDevuelve100(){
         sequence = new char[][]{{'A', 'G', 'C'}, {'A', 'G', 'C'}, {'A', 'G', 'C'}};
-        assertEquals(100, potcc.compute(sequence));
+        assertEquals(100, porcentajeConservedColumns.compute(sequence));
 
     }
     @Test
     public void porcentajeCoincidenNingunaDevuelve0(){
         sequence = new char[][]{{'A', 'C', 'T'}, {'C', 'T', 'A'}, {'T', 'A', 'C'}};
-        assertEquals(0, potcc.compute(sequence));
+        assertEquals(0, porcentajeConservedColumns.compute(sequence));
     }
     @Test
     public void porcentajeCoincidenLaMitadDevuelve50(){
         sequence = new char[][]{{'A', 'C', 'T', 'T'}, {'C', 'C', 'T','G'}, {'T', 'C', 'T', 'G'}};
-        assertEquals(50, potcc.compute(sequence));
+        assertEquals(50, porcentajeConservedColumns.compute(sequence));
     }
     @Test
     public void porcentajeCoinciden2de7devuelve2857(){
         sequence = new char[][]{{'A', 'C', 'T', 'T', 'T'}, {'C', 'C', 'T','G', 'T'}, {'T', 'C', 'T', 'G', 'A'}};
-        assertEquals(((double)2/5)*100, potcc.compute(sequence));
+        assertEquals(((double)2/5)*100, porcentajeConservedColumns.compute(sequence));
     }
     @Test
     public void porcentajeCoinciden0comprobamosLongitudDevuelve0(){
         sequence = new char[][]{{'A'}, {'C', 'C', 'T','G', 'T'}, {'T', 'C', 'T', 'G', 'A'}};
-        assertEquals(0, potcc.compute(sequence));
+        assertEquals(0, porcentajeConservedColumns.compute(sequence));
     }
 
 
