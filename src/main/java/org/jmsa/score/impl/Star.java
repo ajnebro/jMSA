@@ -36,21 +36,19 @@ public class Star implements Score {
     return (result);
   }
 
-  public Character aaMoreRepeated(char[][] parameterSequence, int parameterPosAAinSequence){
+  public Character aaMoreRepeated(char[][] parameterSequence, int parameterPosAAinSequence) {
     /*
     The aim of this function is to return the Character of the most repeated aa in a determined position
     of a group of sequences.
-<<<<<<< HEAD
-=======
-
->>>>>>> c53820db42ed621f0e0bdf3e18e9bc4ae4a2b9e6
       First, we create a map in which we store the char corresponding to our Aa and its frequency.
       Then, we select the most repeated aa in the map.
      */
 
     HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
 
-    for (int numberOfSequence = 0; numberOfSequence < parameterSequence.length; numberOfSequence++) {
+    for (int numberOfSequence = 0;
+        numberOfSequence < parameterSequence.length;
+        numberOfSequence++) {
       Character aa = parameterSequence[numberOfSequence][parameterPosAAinSequence];
       if (charFreq.containsKey(parameterSequence[numberOfSequence][parameterPosAAinSequence])) {
         Integer newFreq = (Integer) charFreq.get(aa) + 1;
@@ -71,9 +69,4 @@ public class Star implements Score {
     }
     return moreRepeatedAA;
   }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c53820db42ed621f0e0bdf3e18e9bc4ae4a2b9e6
