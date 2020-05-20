@@ -2,9 +2,6 @@ package org.jmsa.score.impl;
 import org.jmsa.score.Score;
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
-/**
- * Hello world!
- */
 public class SumOfPairs implements Score {
     private SubstitutionMatrix matrix;
 
@@ -20,8 +17,8 @@ public class SumOfPairs implements Score {
         return totalSum;
     }
 
-    public double sumCol(char[][] sequence,int column){
-        double columnSum=0;
+    public double sumCol(char[][] sequence,int column) {
+        double columnSum = 0;
         for (int f = 0; f < sequence.length - 1; f++) {
             for (int p = f + 1; p < sequence.length; p++) {
                 columnSum += matrix.getDistance(sequence[f][column], sequence[p][column]);
