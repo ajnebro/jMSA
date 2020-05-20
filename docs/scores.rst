@@ -19,7 +19,8 @@ The percentage of conserved columns is very important because it has many aplica
   - In medical researches the applications of the MSA and specifically the amount of conserved columns it's used to identifi genetics diseases, in the compatibility between species so we can study the pathology on lab organisms instead of humans...
   - Identifying the conserved columns can be very helpful to predict functional sequences such as genes, besides, if the secuences have a known function, they can also be used to predict the function of those proteins; in order to create databases.
  
- Our class measures the amount of conserved columns by implementing the class score, and finding the sequences who are conserved and then returning the percentege ot total conserved columns of the array.
+Our class measures the amount of conserved columns by implementing the class score, and finding the sequences who are conserved and then returning the percentege ot total conserved columns of the array. In order to do so, the programme recieves a bisequential file of type char and also we have a counter for the conserved columns and a variable for the length of the sequence. Using a for loop we withdraw the whole sequence, now if the i sequence has the 
+ 
 
 Entropy
 -------
