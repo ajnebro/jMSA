@@ -1,7 +1,6 @@
 Scores
 ======
 
-Explanation of the scores here ...
 
 Star
 ----
@@ -144,8 +143,6 @@ The percentage of conserved columns is very important because it has many aplica
 Entropy
 -------
 
-- Definition:
-
 Entropy of Shanon can be defined as grade of disorder that a random variable can generate. It is related to the uncertainty that exists in
 an experiment, as the amount of "noise" that contains the system.
 
@@ -160,8 +157,9 @@ represents how much distance exist between the sequences. Entropy is important b
 Mathematically it's represented by the summation of residue's frequency times the logarithm of different residue's number, as it can be observed in
 the following picture:
 
-.. image:: entropy.jpg
-- Implementation:
+.. image:: /resources/image/entropy.jpg
+
+IMPLEMENTATION.
 
 We have created a function called compute, which receives a sequence and creates a HashMap <String, Integer>
 with the number of times a nucleotide appears. We have supposed that the sequence doesn't contains incorrect characters.
