@@ -13,7 +13,7 @@ import java.util.*;
 /**
  * Blosum62 matrix class
  */
-public class Blosum62 implements SubstitutionMatrix {
+public class Blosum62 extends SubstitutionMatrixObject {
 private Double gapPenalty = null;
   private HashMap<List<Character>, Integer> substitutionMatrix;
 

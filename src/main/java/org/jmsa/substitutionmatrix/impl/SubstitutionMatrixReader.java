@@ -11,7 +11,7 @@ import java.util.*;
 public class SubstitutionMatrixReader {
 
 
-    public HashMap<List<Character>, Integer> readMatrixFromFile(String file, SubstitutionMatrix substitutionMatrix) {
+    public HashMap<List<Character>, Integer> readMatrixFromFile(String file, SubstitutionMatrixObject substitutionMatrix) {
         HashMap<List<Character>, Integer> NewSubstitutionMatrix = new HashMap<>();
         String line;
         List<String> guide = null;

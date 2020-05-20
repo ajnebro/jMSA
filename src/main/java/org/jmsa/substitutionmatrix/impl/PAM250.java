@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * PAM250 matrix class
  */
-public class PAM250 implements SubstitutionMatrix {
+public class PAM250 extends SubstitutionMatrixObject {
   private Double gapPenalty = null;
   private HashMap<List<Character>, Integer> substitutionMatrix;
 
