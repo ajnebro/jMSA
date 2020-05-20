@@ -1,13 +1,13 @@
-package java.org.jmsa.substitutionmatrix.impl;
+package org.jmsa.substitutionmatrix.impl;
 
-import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import java.util.*;
 
 /**
@@ -50,7 +50,7 @@ private Double gapPenalty = null;
 
   //GapPenalty value obtained from substitutionMatrix
   public double getGapPenalty() {
-    return getDistance('A', '-');
+    return this.gapPenalty;
   }
 
   private void matrixReader(){

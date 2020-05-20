@@ -1,4 +1,4 @@
-package java.org.jmsa.substitutionmatrix;
+package org.jmsa.substitutionmatrix;
 
 /**
  * Hello world!
@@ -14,5 +14,7 @@ public interface SubstitutionMatrix {
   double getGapPenalty() ;
 
   Double getInitialGapPenalty();
+
+  public void setGapPenalty(Double gapPenalty);
 
 }

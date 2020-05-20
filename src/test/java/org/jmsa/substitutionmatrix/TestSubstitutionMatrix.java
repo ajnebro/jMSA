@@ -1,8 +1,8 @@
-package java.org.jmsa.substitutionMatrix;
+package org.jmsa.substitutionMatrix;
 
-import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
-import java.org.jmsa.substitutionmatrix.impl.Blosum62;
-import java.org.jmsa.substitutionmatrix.impl.PAM250;
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.impl.Blosum62;
+import org.jmsa.substitutionmatrix.impl.PAM250;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -88,7 +88,7 @@ public class TestSubstitutionMatrix {
   @Test
   public void testShouldReturnMinus8VerB62() {
     blosum62 = new Blosum62();
-    double expectedValue = -8;
+    double expectedValue = -4;
     double obtainedValue = blosum62.getGapPenalty();
     assertEquals(expectedValue, obtainedValue);
   }
@@ -143,4 +143,6 @@ public class TestSubstitutionMatrix {
     assertEquals(-4, blosum62.getDistance('W', 'P'));
     assertEquals(8, blosum62.getDistance('H', 'H'));
   }
+
+
 }

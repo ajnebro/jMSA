@@ -42,24 +42,24 @@ Class structure.
 Blossum62 and PAM250 classes implement the SubstitutionMatix interface.
 
 These classes have two constructors , one without parameters and other with the desired gap score as 
-parameter. We algo have a matrixReader method, which reads the matrix from a file, a method called 
+parameter. We also have a matrixReader method, which reads the matrix from a file, a method called 
 getDistance, which, given to characters, returns the distance in the matrix between them, and the 
 methods getGapCharacter and getGapPenalty.
 
 
-The matrixReader method for PAM250 (We use the same methods for both classes)
+The matrixReader method relies on the class SubstitutionMatrixReader:
 
 .. code-block:: java
 
- private HashMap<List<Character>, Integer> readMatrixFromFile() {
-        HashMap<List<Character>, Integer> substitutionMatrix = new HashMap<>();
+    public HashMap<List<Character>, Integer> readMatrixFromFile(String file, SubstitutionMatrix substitutionMatrix) {
+        HashMap<List<Character>, Integer> NewSubstitutionMatrix = new HashMap<>();
         String line;
         List<String> guide = null;
         List<Character> key1;
         List<Character> key2;
         int value;
 
-        try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))))) {
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(file))))) {
             while ((line = fileReader.readLine()) != null) {
                 //The first nine lines start by # -> they don't contain substitutionMatrix distances
                 if (!line.startsWith("#")) {
@@ -78,31 +78,35 @@ The matrixReader method for PAM250 (We use the same methods for both classes)
                         key2.add(guide.get(i).charAt(0));
                         key2.add(lineMatrix.get(0).charAt(0));
 
-                        if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
+                        if (!NewSubstitutionMatrix.containsKey(key1) && !NewSubstitutionMatrix.containsKey(key2)) {
                             //For determinate gapPenalty -> we check if gapPenalty value has been initialized
-                            if ((key1.get(0).equals(getGapCharacter()) ^ key1.get(1).equals(getGapCharacter())) && gapPenalty != null) {
+                            if ((key1.get(0).equals(substitutionMatrix.getGapCharacter()) ^ key1.get(1).equals(substitutionMatrix.getGapCharacter())) &&
+                                    (substitutionMatrix.getInitialGapPenalty() != null)) {
                                 //It changes gapPenalty value in matrix
-                                value = gapPenalty.intValue();
+                                value = substitutionMatrix.getInitialGapPenalty().intValue();
                             } else {
                                 //It takes gapPenalty value from substitutionMatrix file (default gapPenalty)
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
+                                if ((key1.get(0).equals(substitutionMatrix.getGapCharacter()) ^ key1.get(1).equals(substitutionMatrix.getGapCharacter()))){
+                                    substitutionMatrix.setGapPenalty(Double.valueOf(value));
+                                }
                             }
 
-                            substitutionMatrix.put(key1, value);
+                            NewSubstitutionMatrix.put(key1, value);
                         }
                     }
                 }
             }
             //Exception control
         } catch (FileNotFoundException e) {
-            System.out.println("File: PAM250 is not found");
+            System.out.println("File not found");
             System.exit(1);
         } catch (IOException e) {
             System.out.println("An IO error has occured: " + e.getMessage());
             System.exit(1);
         }
 
-        return substitutionMatrix;
+        return NewSubstitutionMatrix;
     }
 
 

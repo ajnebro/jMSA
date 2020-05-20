@@ -1,11 +1,11 @@
-package java.org.jmsa.substitutionmatrix.impl;
+package org.jmsa.substitutionmatrix.impl;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import java.util.*;
 
 public class SubstitutionMatrixReader {
@@ -17,6 +17,7 @@ public class SubstitutionMatrixReader {
         List<String> guide = null;
         List<Character> key1;
         List<Character> key2;
+        Double gapPenalty=substitutionMatrix.getInitialGapPenalty();
         int value;
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get(file))))) {
@@ -47,6 +48,9 @@ public class SubstitutionMatrixReader {
                             } else {
                                 //It takes gapPenalty value from substitutionMatrix file (default gapPenalty)
                                 value = Integer.parseInt(lineMatrix.get(i + 1));
+                                if ((key1.get(0).equals(substitutionMatrix.getGapCharacter()) ^ key1.get(1).equals(substitutionMatrix.getGapCharacter()))){
+                                    gapPenalty=Double.valueOf(value);
+                                }
                             }
 
                             NewSubstitutionMatrix.put(key1, value);
@@ -62,7 +66,7 @@ public class SubstitutionMatrixReader {
             System.out.println("An IO error has occured: " + e.getMessage());
             System.exit(1);
         }
-
+        substitutionMatrix.setGapPenalty(gapPenalty);
         return NewSubstitutionMatrix;
     }
 }

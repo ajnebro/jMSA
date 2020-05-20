@@ -1,6 +1,6 @@
-package java.org.jmsa.substitutionmatrix.impl;
+package org.jmsa.substitutionmatrix.impl;
 
-import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -51,7 +51,7 @@ public class PAM250 implements SubstitutionMatrix {
 
   //GapPenalty value obtained from substitutionMatrix
   public double getGapPenalty() {
-    return getDistance('A', '-');
+    return this.gapPenalty;
   }
 
   private void matrixReader(){
