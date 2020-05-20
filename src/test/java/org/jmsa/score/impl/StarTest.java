@@ -1,6 +1,7 @@
 package org.jmsa.score.impl;
 
 import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import org.jmsa.substitutionmatrix.impl.PAM250;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 /**
  * Assuming we are receiving sequences that containg correct letters.
  *
@@ -28,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class StarTest {
   private Star star;
+  private Star starMock;
 
   class DummySubstitutionMatrix implements SubstitutionMatrix {
     int[][] matrix = {{5, -4, -4, -4}, {-4, 5, -4, -4}, {-4, -4, 5, -4}, {-4, -4, -4, 5}};
@@ -66,6 +69,29 @@ class StarTest {
   // before each test we'll create a Star Object
   public void setup() {
     star = new Star(matrix);
+    SubstitutionMatrix substitutionMatrix = mock(PAM250.class);
+
+    when(substitutionMatrix.getDistance('A', 'A')).thenReturn(5.0);
+    when(substitutionMatrix.getDistance('A', 'T')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('A', 'G')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('A', 'C')).thenReturn(-4.0);
+
+    when(substitutionMatrix.getDistance('T', 'T')).thenReturn(5.0);
+    when(substitutionMatrix.getDistance('T', 'C')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('T', 'A')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('T', 'G')).thenReturn(-4.0);
+
+    when(substitutionMatrix.getDistance('C', 'C')).thenReturn(5.0);
+    when(substitutionMatrix.getDistance('C', 'T')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('C', 'A')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('C', 'G')).thenReturn(-4.0);
+
+    when(substitutionMatrix.getDistance('G', 'G')).thenReturn(5.0);
+    when(substitutionMatrix.getDistance('G', 'T')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('G', 'A')).thenReturn(-4.0);
+    when(substitutionMatrix.getDistance('G', 'C')).thenReturn(-4.0);
+
+    starMock = new Star(substitutionMatrix);
   }
 
   @Test
@@ -73,6 +99,15 @@ class StarTest {
     char[][] sequence = {{'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}};
     double expectedValue = 60;
     double obtainedValue = star.compute(sequence);
+
+    assertEquals(expectedValue, obtainedValue);
+  }
+
+  @Test
+  public void equalSequencesShouldReturn5LengthSeqWithMock() {
+    char[][] sequence = {{'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}};
+    double expectedValue = 60;
+    double obtainedValue = starMock.compute(sequence);
 
     assertEquals(expectedValue, obtainedValue);
   }
@@ -87,10 +122,28 @@ class StarTest {
   }
 
   @Test
+  public void threeUnitarySequencesWithOneDifferenceShouldReturn6WithMock() {
+    char[][] sequence = {{'A'}, {'A'}, {'T'}};
+    double expectedValue = 6;
+    double obtainedValue = starMock.compute(sequence);
+
+    assertEquals(expectedValue, obtainedValue);
+  }
+
+  @Test
   public void threeUnitarySequencesWithNoEquivalencesShouldReturnMinus3() {
     char[][] sequence = {{'A'}, {'C'}, {'T'}};
     double expectedValue = -3;
     double obtainedValue = star.compute(sequence);
+
+    assertEquals(expectedValue, obtainedValue);
+  }
+
+  @Test
+  public void threeUnitarySequencesWithNoEquivalencesShouldReturnMinus3WithMock() {
+    char[][] sequence = {{'A'}, {'C'}, {'T'}};
+    double expectedValue = -3;
+    double obtainedValue = starMock.compute(sequence);
 
     assertEquals(expectedValue, obtainedValue);
   }
@@ -105,15 +158,38 @@ class StarTest {
   }
 
   @Test
+  public void fourUnitarySequencesWithSameLetterQuantitiesShouldReturn2WithMock() {
+    char[][] sequence = {{'A'}, {'A'}, {'T'}, {'T'}};
+    double expectedValue = 2;
+    double obtainedValue = starMock.compute(sequence);
+
+    assertEquals(expectedValue, obtainedValue);
+  }
+
+  @Test
   public void exampleSequenceShouldReturn1() {
     char[][] sequence = {
-      {'A', 'T', 'T', 'C', 'G'},
-      {'A', 'G', 'A', 'C', 'C'},
-      {'T', 'C', 'G', 'T', 'A'},
-      {'G', 'G', 'C', 'T', 'A'}
+            {'A', 'T', 'T', 'C', 'G'},
+            {'A', 'G', 'A', 'C', 'C'},
+            {'T', 'C', 'G', 'T', 'A'},
+            {'G', 'G', 'C', 'T', 'A'}
     };
     double expectedValue = 1;
     double obtainedValue = star.compute(sequence);
+
+    assertEquals(expectedValue, obtainedValue);
+  }
+
+  @Test
+  public void exampleSequenceShouldReturn1WithMock() {
+    char[][] sequence = {
+            {'A', 'T', 'T', 'C', 'G'},
+            {'A', 'G', 'A', 'C', 'C'},
+            {'T', 'C', 'G', 'T', 'A'},
+            {'G', 'G', 'C', 'T', 'A'}
+    };
+    double expectedValue = 1;
+    double obtainedValue = starMock.compute(sequence);
 
     assertEquals(expectedValue, obtainedValue);
   }
