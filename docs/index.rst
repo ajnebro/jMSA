@@ -7,8 +7,8 @@ jMSA project: scoring multiple sequence alignments in Java
 ==========================================================
 
 jMSA is a collaborative project of the students of the "Programación Avanzada in Bionformatics" subject
-(Health Engineering degree, University of Málaga). The project is focused to provide a number of scores for
-`multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequence_alignment>`_  (MSA).
+(Health Engineering degree, University of Málaga). The project focuses on providing a set of scores for
+the `multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequence_alignment>`_  (MSA).
 
 .. toctree::
    :maxdepth: 2
@@ -22,9 +22,7 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
    utils.rst
    examples.rst
 
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+Developers:
+* Name 1
+* Name 2
+* ...
