@@ -22,7 +22,8 @@ the `multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequenc
    utils.rst
    examples.rst
 
-Developers:
+**Developers:**
+
 * Name 1
 * Name 2
 * ...
