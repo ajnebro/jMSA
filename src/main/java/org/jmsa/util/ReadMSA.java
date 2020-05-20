@@ -19,7 +19,7 @@ public class ReadMSA {
     boolean first = true;
     while(reader.hasNextLine()) {
       String line = reader.nextLine().trim();
-      if (line.isBlank()==false) {
+      if (!line.isBlank()) {
         if (line.charAt(0)=='>') {
           List<Character> myList = new ArrayList<Character>();
           seqList.add(myList);

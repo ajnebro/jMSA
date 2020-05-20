@@ -1,5 +1,14 @@
 Project jMSA: Scoring multiple sequence alignments in Java
 ==========================================================
 
-jMSA is an open source project aimed a providing a number of scores for
-multiple sequence alignment (MSA).
+jMSA is a collaborative project of the students of the "Programación Avanzada in Bionformatics" subject
+(Health Engineering degree, University of Málaga). The project focuses on providing a set of scores for the
+`multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequence_alignment>`_  (MSA).
+
+**Developers:**
+
+* Name 1
+* Name 2
+* ...
+
+
