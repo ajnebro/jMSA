@@ -29,5 +29,4 @@ public class SumOfPairs implements Score {
         }
         return columnSum;
     }
-
 }
