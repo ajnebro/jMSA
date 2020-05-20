@@ -1,96 +1,68 @@
-package org.jmsa.substitutionmatrix.impl;
+package java.org.jmsa.substitutionmatrix.impl;
 
-import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import java.util.*;
 
 /**
- * Hello world!
+ * Blosum62 matrix class
  */
 public class Blosum62 implements SubstitutionMatrix {
-
-  private final Map<List<Character>, Double> substitutionMatrix;
-  private final double gapPenalty;
+private Double gapPenalty = null;
+  private HashMap<List<Character>, Integer> substitutionMatrix;
 
   //Constructor that takes default gapPenalty value
-  public Blosum62() {
-    this(-8D);
-  }
+  //This value is taken from substitutionMatrix file (method readMatrixFromFile)
+  public Blosum62() {this.substitutionMatrix=null;
+  matrixReader();}
 
   //Constructor that changes gapPenalty value
-  public Blosum62(double gP) {
-    gapPenalty = gP;
-    substitutionMatrix = matrixReader();
+  public Blosum62(Double gapPenalty) {
+    this.gapPenalty = gapPenalty;
+    this.substitutionMatrix=null;
+    matrixReader();
   }
 
-  //Method that gets substitutionMatrix distances
+  //This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
   public double getDistance(char char1, char char2) {
-    double result;
-    //First we check both cases: if there are gapCharacters in parameters -> we determinate correct distances
-    if (char1 == '-' & char2 == '-') {
-      result = 1;
-    } else if (char1 == '-' || char2 == '-') {
-      result = this.getGapPenalty();
-    } else {
-      //Distance from substitutionMatrix
-      if (substitutionMatrix.get(List.of(char1, char2)) != null) {
-        result = substitutionMatrix.get(List.of(char1, char2));
-      } else {
-        result = substitutionMatrix.get(List.of(char2, char1));
-      }
+    List<Character> pair = new ArrayList<>();
+    pair.add(char1);
+    pair.add(char2);
+    double distance;
+
+    if (!substitutionMatrix.containsKey(pair)) {
+      Collections.reverse(pair);
     }
-    return result;
+    distance = Double.valueOf(substitutionMatrix.get(pair));
+    return distance;
   }
 
+  //Default gapCharacter
   public char getGapCharacter() {
     return '-';
   }
 
+  //GapPenalty value obtained from substitutionMatrix
   public double getGapPenalty() {
-    return gapPenalty;
+    return getDistance('A', '-');
   }
 
-  //Method that reads substitutionMatrix values from file
-  private Map<List<Character>, Double> matrixReader() {
-
-    Map<List<Character>, Double> substitutionMatrix = new HashMap<>();
-    String line;
-
-    try (BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/Blosum62.txt"))))) {
-      while ((line = reader.readLine()) != null) {
-        String[] parts = line.split(":", 2);
-        //We find two parts: key = pair aas, value = distance
-        if (parts.length >= 2) {
-          //It saves pair aas
-          String[] lp = parts[0].split(",");
-          List<Character> key = List.of(lp[0].charAt(0), lp[1].charAt(0));
-          //It gets distance
-          String value = parts[1];
-          substitutionMatrix.put(key, Double.valueOf(value));
-        } else {
-          System.out.println("ignoring line: " + line);
-        }
-      }
-      //Exception control
-    } catch (FileNotFoundException e) {
-      System.out.println("File: Blosum62 is not found");
-      System.exit(1);
-    } catch (IOException e) {
-      System.out.println("An IO error has occured: " + e.getMessage());
-      System.exit(1);
-    }
-
-    return substitutionMatrix;
+  private void matrixReader(){
+    SubstitutionMatrixReader matrixReader= new SubstitutionMatrixReader();
+    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/Blosum62.txt",this);
   }
 
+  public Double getInitialGapPenalty(){
+    return this.gapPenalty;
+  }
 
+  public void setGapPenalty(Double gapPenalty) {
+    this.gapPenalty = gapPenalty;
+  }
 }
-
-

@@ -1,6 +1,6 @@
-package org.jmsa.substitutionmatrix.impl;
+package java.org.jmsa.substitutionmatrix.impl;
 
-import org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,22 +10,24 @@ import java.nio.file.Paths;
 import java.util.*;
 
 /**
- * Hello world!
+ * PAM250 matrix class
  */
 public class PAM250 implements SubstitutionMatrix {
   private Double gapPenalty = null;
-  private final HashMap<List<Character>, Integer> subsMatrix;
+  private HashMap<List<Character>, Integer> substitutionMatrix;
 
   //Constructor that takes default gapPenalty value
   //This value is taken from substitutionMatrix file (method readMatrixFromFile)
   public PAM250() {
-    this.subsMatrix = readMatrixFromFile();
+    this.substitutionMatrix=null;
+    matrixReader();
   }
 
   //Constructor that changes gapPenalty value
-  public PAM250(Double gp) {
-    this.gapPenalty = gp;
-    this.subsMatrix = readMatrixFromFile();
+  public PAM250(Double gapPenalty) {
+    this.gapPenalty = gapPenalty;
+    this.substitutionMatrix=null;
+    matrixReader();
   }
 
   //This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
@@ -35,10 +37,10 @@ public class PAM250 implements SubstitutionMatrix {
     pair.add(char2);
     double distance;
 
-    if (!subsMatrix.containsKey(pair)) {
+    if (!substitutionMatrix.containsKey(pair)) {
       Collections.reverse(pair);
     }
-    distance = Double.valueOf(subsMatrix.get(pair));
+    distance = Double.valueOf(substitutionMatrix.get(pair));
     return distance;
   }
 
@@ -52,65 +54,17 @@ public class PAM250 implements SubstitutionMatrix {
     return getDistance('A', '-');
   }
 
+  private void matrixReader(){
+    SubstitutionMatrixReader matrixReader= new SubstitutionMatrixReader();
 
-  private HashMap<List<Character>, Integer> readMatrixFromFile() {
-    HashMap<List<Character>, Integer> substitutionMatrix = new HashMap<>();
-    String line;
-    List<String> guide = null;
-    List<Character> key1;
-    List<Character> key2;
-    int value;
-
-    try (BufferedReader fileReader = new BufferedReader(new FileReader(String.valueOf(Paths.get("resources/data/PAM250"))))) {
-      while ((line = fileReader.readLine()) != null) {
-        //The first nine lines start by # -> they don't contain substitutionMatrix distances
-        if (!line.startsWith("#")) {
-          List<String> lineMatrix = Arrays.asList(line.trim().split("\\s+"));
-          if (line.startsWith(" ")) {
-            //The first line, with amino acids values -> this is the guide to compare with aas in rest of lines
-            guide = lineMatrix;
-          } else for (int i = 0; i < Objects.requireNonNull(guide).size(); i++) {
-            //Two keys to get the aas in both ways
-            key1 = new ArrayList<>();
-            key2 = new ArrayList<>();
-
-            key1.add(lineMatrix.get(0).charAt(0));
-            key1.add(guide.get(i).charAt(0));
-
-            key2.add(guide.get(i).charAt(0));
-            key2.add(lineMatrix.get(0).charAt(0));
-
-            if (!substitutionMatrix.containsKey(key1) && !substitutionMatrix.containsKey(key2)) {
-              //For determinate gapPenalty -> we check if gapPenalty value has been initialized
-              if ((key1.get(0).equals(getGapCharacter()) ^ key1.get(1).equals(getGapCharacter())) && gapPenalty != null) {
-                //It changes gapPenalty value in matrix
-                value = gapPenalty.intValue();
-              } else {
-                //It takes gapPenalty value from substitutionMatrix file (default gapPenalty)
-                value = Integer.parseInt(lineMatrix.get(i + 1));
-              }
-
-              substitutionMatrix.put(key1, value);
-            }
-          }
-        }
-      }
-      //Exception control
-    } catch (FileNotFoundException e) {
-      System.out.println("File: PAM250 is not found");
-      System.exit(1);
-    } catch (IOException e) {
-      System.out.println("An IO error has occured: " + e.getMessage());
-      System.exit(1);
-    }
-
-    return substitutionMatrix;
+    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/PAM250",this);
   }
 
+  public Double getInitialGapPenalty(){
+    return this.gapPenalty;
+  }
+
+  public void setGapPenalty(Double gapPenalty) {
+    this.gapPenalty = gapPenalty;
+  }
 }
-
-
-
-
-
-

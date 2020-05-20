@@ -1,8 +1,8 @@
-package org.jmsa.substitutionmatrix;
+package java.org.jmsa.substitutionMatrix;
 
-import org.jmsa.substitutionmatrix.SubstitutionMatrix;
-import org.jmsa.substitutionmatrix.impl.Blosum62;
-import org.jmsa.substitutionmatrix.impl.PAM250;
+import java.org.jmsa.substitutionmatrix.SubstitutionMatrix;
+import java.org.jmsa.substitutionmatrix.impl.Blosum62;
+import java.org.jmsa.substitutionmatrix.impl.PAM250;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,6 +21,7 @@ public class TestSubstitutionMatrix {
     double obtainedValue = p250.getGapPenalty();
     assertEquals(expectedValue, obtainedValue);
   }
+
 
   @Test
   public void testShouldReturnMinus8VerP250() {
