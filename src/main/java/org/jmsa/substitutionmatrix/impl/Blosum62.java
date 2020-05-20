@@ -55,7 +55,7 @@ private Double gapPenalty = null;
 
   private void matrixReader(){
     SubstitutionMatrixReader matrixReader= new SubstitutionMatrixReader();
-    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/Blosum62.txt",this);
+    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/Blosum62Matrix",this);
   }
 
   public Double getInitialGapPenalty(){
