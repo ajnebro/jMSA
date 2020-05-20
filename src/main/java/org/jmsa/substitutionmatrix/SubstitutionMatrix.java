@@ -13,8 +13,4 @@ public interface SubstitutionMatrix {
 
   double getGapPenalty() ;
 
-  Double getInitialGapPenalty();
-
-  public void setGapPenalty(Double gapPenalty);
-
 }
