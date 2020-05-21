@@ -26,3 +26,20 @@ The alignment shown has been done with 'Clustalw', a tool for biological sequenc
 
 We can observe that the entropy is 2.07. Regarding the percentage of non-gaps and the percentage of conserved columns, they are 96.07% and 60.38%, respectively. The score obtained applying the star method in the PAM250 substitution matrix is 9303, while applied to Blosum62 it is 9512. Finally, we see that the sum of pairs of PAM250 is 21319 and of Blosum62 is 21618.
 
+
+Example Group 3
+---------------
+
+To see how the program works, let's make an example. We have selected 4 sequences of insulin, a hormone produced by the pancreas that is in charge of regulating the amount of glucose in the blood. The 4 sequences come from 4 different mammalian organisms.
+
+We have introduced the sequences in an option offered by the NCBI, which allows to align a series of sequences.
+
+We have downloaded the alignment in FASTA format and then used that file to make the example.
+
+The result obtained with this example is:
+
+ .. figure:: /docs/resources/images/ResultadosExample3.png
+
+The alignment of the sequences shown below has been obtained using Clustal Omega, a new MSA tool that uses seeded guide trees and HMM profile-profile techniques to generate alignments:
+
+ .. figure:: /docs/resources/images/AlineamientoExample3.png
