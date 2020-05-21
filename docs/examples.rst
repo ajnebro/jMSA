@@ -18,13 +18,11 @@ Finally, it was also studied that the axotomy of some cultured neurons showed a 
 
 For all these curiosities and the number of organisms that contain it, we have decided to take this protein as an example.
 
-Photo Alignment (Marina)
-
  .. figure:: /docs/resources/images/AlineamientoGrupo2.jpeg
 
-Photo Results (Marina)
+The alignment shown has been done with 'Clustalw', a tool for biological sequence alignments. Finally, we run the class 'Example2' and get the following information:
 
  .. figure:: /docs/resources/images/ResultadosExample2.png
 
+We can observe that the entropy is 2.07. Regarding the percentage of non-gaps and the percentage of conserved columns, they are 96.07% and 60.38%, respectively. The score obtained applying the star method in the PAM250 substitution matrix is 9303, while applied to Blosum62 it is 9512. Finally, we see that the sum of pairs of PAM250 is 21319 and of Blosum62 is 21618.
 
-Comment results (Marina)
