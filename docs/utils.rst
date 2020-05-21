@@ -1,10 +1,10 @@
 Utils
 =====
 
-Class ReadMSA provides methods to read one or multiple sequences from a .fasta file.
-The main method is readSequenceFromFastaFile(), which takes a path to the .fasta file
-as a parameter and returns an array of arrays of chars, containing the sequences
-from the file (one array for each sequence), and its adjacent method seqAlignedCorrectly(),
+Class `ReadMSA` provides methods to read one or multiple sequences from a .fasta file.
+The main method is `readSequenceFromFastaFile()` , which takes a path to the .fasta file
+as a parameter and re`turns an array of arrays of chars, containing the sequences
+from the file (one array for each sequence), and its adjacent method `seqAlignedCorrectly()`,
 which is used to determine whether or not the sequences in the file are aligned
 correctly (in this case, if all sequences in the file are of equal length (including
 gaps as chars), they will be considered correctly aligned).

@@ -1,8 +1,6 @@
 Multiple sequence alignment
 ===========================
 
-Problem description here ...
-
 A multiple sequence alignment (MSA) is an alignment of more than
 two sequences. The most common applications are:
 

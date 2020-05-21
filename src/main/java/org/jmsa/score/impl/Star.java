@@ -6,9 +6,7 @@ import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * grupo 3: irene sanchez, clara jimenez y lucia valverde
- */
+/** grupo 3: irene sanchez, clara jimenez y lucia valverde */
 public class Star implements Score {
   private final SubstitutionMatrix scoreMatrix;
 
@@ -20,6 +18,7 @@ public class Star implements Score {
     double result = 0;
 
     // We go through the sequences inside sequence. We assume all sequences have the same size
+
     for (int posAAinSequence = 0; posAAinSequence < sequence[0].length; posAAinSequence++) {
       /* 1. We select the most repeated Aa from all sequences in the position posAAinSequence.
       To do this, we call aaMoreRepeated method.
@@ -40,13 +39,16 @@ public class Star implements Score {
   public Character aaMoreRepeated(char[][] parameterSequence, int parameterPosAAinSequence) {
     /*
     The aim of this function is to return the Character of the most repeated aa in a determined position
-    of a group of sequences. First, we create a map in which we store the char corresponding to our Aa and
-    its frequency. Then, we select the most repeated aa in the map.
+    of a group of sequences.
+      First, we create a map in which we store the char corresponding to our Aa and its frequency.
+      Then, we select the most repeated aa in the map.
      */
 
     HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
 
-    for (int numberOfSequence = 0; numberOfSequence < parameterSequence.length; numberOfSequence++) {
+    for (int numberOfSequence = 0;
+         numberOfSequence < parameterSequence.length;
+         numberOfSequence++) {
       Character aa = parameterSequence[numberOfSequence][parameterPosAAinSequence];
       if (charFreq.containsKey(parameterSequence[numberOfSequence][parameterPosAAinSequence])) {
         Integer newFreq = (Integer) charFreq.get(aa) + 1;

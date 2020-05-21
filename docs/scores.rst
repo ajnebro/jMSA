@@ -1,7 +1,6 @@
 Scores
 ======
 
-
 Star
 ----
 
@@ -103,32 +102,49 @@ of the symbols of the column.
 Sum of pairs
 ------------
 Sum of pairs is a method of evaluating the quality of multiple sequence alignment.
-This method assigns a specific score to the set of possible pair combinations using a substitution matrix. Its operation consists of, given a sequence alignment, selecting by column the possible pair combinations and identifying the sum of the values provided by the substitution matrix, which gives us a final sum made up of the sums of each column.
+This method assigns a specific score to the set of possible pair combinations of elements using a substitution matrix. Its operation consists of, given a sequence alignment, selecting by column the possible pair combinations and identifying the sum of the values provided by the substitution matrix, which gives us a final sum made up of the sums of each column.
 
-That is: given an alignment A composed of 4 sequences such that:
+That is:
+    - Given an alignment A composed of 4 sequences such that:
 
-S1: ATGCTA
+    .. figure:: resources/images/SecuenciaDocumentacion.PNG
 
-S2: CT-CAA
+    - And a substitution matrix such that:
 
-S3: AT-CTA
-
-S4: -TGATA
+    .. figure:: resources/images/MatrizDocumentacion.PNG
 
 Our method sequentially selects each column and for each column it will select all possible nucleotide pair combinations for that column. Each possible pair will be translated into a numerical value given by the substitution matrix, these values will be added together to finally obtain a final value.
 The higher the final value, the better the alignment.
 
+In the example of our images, for the column marked in red, the sum of pairs would give us the following result.
+
+.. figure:: resources/images/ResultadoDocumentacion.PNG
+
+To carry out the sum of pairs in java we have created two methods: compute and sumCol.
+
+The sumCol method will receive as parameters the sequence and the column in question and will make the sum of pairs of that column.
+For this, it consists of two nested for loops: the first will go through the column from the first element to the last (these elements will correspond to the first element of the pair); and the second for that will go through the elements of the column starting from the element already selected in the previous for and until the last one (these elements will correspond to the second element of the pair).
+In this way all possible pairs are selected.
+Once the pair is selected, the sumCol method calls the getDistance function of the Substitution matrix class, which is responsible for finding the value corresponding to that pair.
+
+.. figure:: resources/images/sumColDocumentacion.PNG
+
+On the other hand, the compute method receives the sequence as a parameter and is in charge of making the sum of all the columns.
+To do this, it goes through the sequence through columns using a for and calls the sumCol method, passing the column in question as a parameter, which will return the sum of that column.
+
+.. figure:: resources/images/computeDocumentacion.PNG
+
 Percentage of non-gaps
 ----------------------
 Visual depictions of the alignment illustrate mutation events such as point mutations (single amino acid or nucleotide changes) that appear as differing characters in a single alignment column, and insertion or deletion mutations (indels or gaps) that appear as hyphens.
- 
+
 This part of the programme is going to calculate the number of non-gaps in an alignment sequence. This is super important since the objective of the MSA, among others,  is to optimize to the maximum the value of the non-gaps-percentage.
- 
-That is the reason why we are going to create the class ‘PercentageOfNonGaps’
- 
-This class implements Score class. It has a method called ‘compute’ which we pass a matrix as a parameter. A counter for non-gaps is initialized to zero This method has nested loop to loop through it.  If the element we read is different from a hyphens, we increase the counter.
-Finally we divide this counter between the total length of the sequence. To obtain a percentage over 100, we multiply the result by 100. 
- 
+
+That is the reason why we are going to create the class *PercentageOfNonGaps*
+
+This class implements Score class. It has a method called *compute()* which we pass a matrix as a parameter. A counter for non-gaps is initialized to zero This method has nested loop to loop through it.  If the element we read is different from a hyphens, we increase the counter.
+Finally we divide this counter between the total length of the sequence. To obtain a percentage over 100, we multiply the result by 100.
+
 
 Percentage of totally conserved columns
 ---------------------------------------
@@ -137,11 +153,13 @@ The percentage of conserved columns is very important because it has many aplica
   - Phylogenetics and taxonomy: the sets of conserved columns can be used to create an evolution tree to study the species and their ancestors.
   - In medical researches the applications of the MSA and specifically the amount of conserved columns it's used to identifi genetics diseases, in the compatibility between species so we can study the pathology on lab organisms instead of humans...
   - Identifying the conserved columns can be very helpful to predict functional sequences such as genes, besides, if the secuences have a known function, they can also be used to predict the function of those proteins; in order to create databases.
- 
+
  Our class measures the amount of conserved columns by implementing the class score, and finding the sequences who are conserved and then returning the percentege ot total conserved columns of the array.
 
 Entropy
 -------
+
+- Definition:
 
 Entropy of Shanon can be defined as grade of disorder that a random variable can generate. It is related to the uncertainty that exists in
 an experiment, as the amount of "noise" that contains the system.
@@ -157,14 +175,13 @@ represents how much distance exist between the sequences. Entropy is important b
 Mathematically it's represented by the summation of residue's frequency times the logarithm of different residue's number, as it can be observed in
 the following picture:
 
-.. image:: /resources/image/entropy.jpg
+.. image:: resources/image/entropy.jpg
 
-IMPLEMENTATION.
+- Implementation:
 
 We have created a function called compute, which receives a sequence and creates a HashMap <String, Integer>
 with the number of times a nucleotide appears. We have supposed that the sequence doesn't contains incorrect characters.
 Once we have the frequencies of nucleotide, we can apply the formula of Shanon Entropy.
 In addition, we have implemented a range of JUnit Tests in order to be secure that the code works correctly.
-
 
 

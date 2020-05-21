@@ -12,4 +12,5 @@ public interface SubstitutionMatrix {
   }
 
   double getGapPenalty() ;
+
 }
