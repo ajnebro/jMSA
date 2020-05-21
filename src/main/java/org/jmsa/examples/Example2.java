@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 public class Example2 {
     public static void main(String[] args) {
         try {
-            char[][] seq = ReadMSA.readSequenceFromFastaFile("resources/data/AuroraKinaseB_MSA.fasta");
+            char[][] seq = ReadMSA.readSequenceFromFastaFile("resources/data/AuroraKinaseBMSA.fasta");
             Entropy entropy = new Entropy();
             PercentageOfNonGaps pong = new PercentageOfNonGaps();
             PercentageOfTotallyConservedColumns potcc = new PercentageOfTotallyConservedColumns();
