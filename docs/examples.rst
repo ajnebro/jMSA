@@ -20,7 +20,7 @@ For all these curiosities and the number of organisms that contain it, we have d
 
  .. figure:: /docs/resources/images/AlineamientoGrupo2.jpeg
 
-The alignment shown has been done with 'Clustalw', a tool for biological sequence alignments. Finally, we run the class 'Example2' and get the following information:
+The alignment shown has been done with 'Clustalw', a tool for biological sequence alignments. Finally, let's pass this alignment to the 'Examples2' class and run it.We get the following information:
 
  .. figure:: /docs/resources/images/ResultadosExample2.png
 
