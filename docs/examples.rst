@@ -14,7 +14,7 @@ Our protein aurora kinase B is found in microtubules close to kinetochores, spec
 
 Its importance of study resides in the fact that the overexpression of this protein causes an uneven distribution of the genetic content, generating aneuploid cells, a distinctive mark of cancer.
 
-On the other hand, another of its molecular functionalities is the union of metal ions, which is also worth mentioning because a failure in the proteins that have this molecular function can trigger the accumulation of metals at harmful levels in the body.
+On the other hand, another of its molecular functionalities is the union of metal ions, which is also worth mentioning because a failure in the proteins that have this molecular function can trigger the accumulation of metals at harmful levels in the organism.
 
 Finally, it was also studied that the axotomy of some cultured neurons showed a clear positive regulation in the expression of the gene of our protein, coinciding with an axonal regenerative outbreak. Furthermore, overexpression of Aurora B kinase has been shown to produce accelerated axonal growth in spinal motor neurons during zebrafish growth.
 
