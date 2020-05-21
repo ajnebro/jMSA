@@ -30,8 +30,9 @@ public class Entropy implements Score {
 
     for (Map.Entry<Character, Integer> nucleotideInMap : MapOfNucleotideWhitTimesOfRepetition.entrySet()) {
       nucleotideFrequency = (double) nucleotideInMap.getValue() / totalNumberOfNucleotides;
-      entropyValue += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(2));
+      entropyValue += -(nucleotideFrequency * Math.log(nucleotideFrequency) / Math.log(4));
     }
     return entropyValue;
   }
 }
+
