@@ -104,20 +104,37 @@ of the symbols of the column.
 Sum of pairs
 ------------
 Sum of pairs is a method of evaluating the quality of multiple sequence alignment.
-This method assigns a specific score to the set of possible pair combinations using a substitution matrix. Its operation consists of, given a sequence alignment, selecting by column the possible pair combinations and identifying the sum of the values provided by the substitution matrix, which gives us a final sum made up of the sums of each column.
+This method assigns a specific score to the set of possible pair combinations of elements using a substitution matrix. Its operation consists of, given a sequence alignment, selecting by column the possible pair combinations and identifying the sum of the values provided by the substitution matrix, which gives us a final sum made up of the sums of each column.
 
-That is: given an alignment A composed of 4 sequences such that:
+That is:
+    - Given an alignment A composed of 4 sequences such that:
 
-S1: ATGCTA
+    .. figure:: resources/images/SecuenciaDocumentacion.PNG
 
-S2: CT-CAA
+    - And a substitution matrix such that:
 
-S3: AT-CTA
-
-S4: -TGATA
+    .. figure:: resources/images/MatrizDocumentacion.PNG
 
 Our method sequentially selects each column and for each column it will select all possible nucleotide pair combinations for that column. Each possible pair will be translated into a numerical value given by the substitution matrix, these values will be added together to finally obtain a final value.
 The higher the final value, the better the alignment.
+
+In the example of our images, for the column marked in red, the sum of pairs would give us the following result.
+
+.. figure:: resources/images/ResultadoDocumentacion.PNG
+
+To carry out the sum of pairs in java we have created two methods: compute and sumCol.
+
+The sumCol method will receive as parameters the sequence and the column in question and will make the sum of pairs of that column.
+For this, it consists of two nested for loops: the first will go through the column from the first element to the last (these elements will correspond to the first element of the pair); and the second for that will go through the elements of the column starting from the element already selected in the previous for and until the last one (these elements will correspond to the second element of the pair).
+In this way all possible pairs are selected.
+Once the pair is selected, the sumCol method calls the getDistance function of the Substitution matrix class, which is responsible for finding the value corresponding to that pair.
+
+.. figure:: resources/images/sumColDocumentacion.PNG
+
+On the other hand, the compute method receives the sequence as a parameter and is in charge of making the sum of all the columns.
+To do this, it goes through the sequence through columns using a for and calls the sumCol method, passing the column in question as a parameter, which will return the sum of that column.
+
+.. figure:: resources/images/computeDocumentacion.PNG
 
 Percentage of non-gaps
 ----------------------
@@ -161,6 +178,7 @@ Mathematically it's represented by the summation of residue's frequency times th
 the following picture:
 
 .. image:: entropy.jpg
+
 - Implementation:
 
 We have created a function called compute, which receives a sequence and creates a HashMap <String, Integer>
