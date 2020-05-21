@@ -1,8 +1,6 @@
 Examples
 ========
 
-Some examples here ...
-
 Example Group 2
 ---------------
 
@@ -22,6 +20,11 @@ For all these curiosities and the number of organisms that contain it, we have d
 
 Photo Alignment (Marina)
 
+ .. figure:: /docs/resources/AlineaminetoGrupo2.jpeg
+
 Photo Results (Marina)
+
+ .. figure:: /docs/resources/ResultadosExample2.png
+
 
 Comment results (Marina)
