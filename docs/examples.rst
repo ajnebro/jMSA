@@ -20,11 +20,11 @@ For all these curiosities and the number of organisms that contain it, we have d
 
 Photo Alignment (Marina)
 
- .. figure:: /docs/resources/AlineaminetoGrupo2.jpeg
+ .. figure:: /docs/resources/images/AlineaminetoGrupo2.jpeg
 
 Photo Results (Marina)
 
- .. figure:: /docs/resources/ResultadosExample2.png
+ .. figure:: /docs/resources/images/ResultadosExample2.png
 
 
 Comment results (Marina)
