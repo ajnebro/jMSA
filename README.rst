@@ -15,5 +15,5 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 * Clara Jiménez Valverde 
 * Lucía Valverde Martínez 
 * Irene Sánchez Jiménez
-
+* Stephan Charles Nielson
 
