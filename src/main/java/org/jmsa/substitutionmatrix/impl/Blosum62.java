@@ -1,14 +1,9 @@
 package org.jmsa.substitutionmatrix.impl;
 
-import org.jmsa.substitutionmatrix.SubstitutionMatrix;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Paths;
-import org.jmsa.substitutionmatrix.SubstitutionMatrix;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Blosum62 matrix class
