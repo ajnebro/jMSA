@@ -7,7 +7,7 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 
 **Developers:**
 
-* Name 1
+* Juan Sánchez Rodríguez
 * Name 2
 * ...
 
