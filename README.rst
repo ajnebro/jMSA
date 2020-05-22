@@ -11,6 +11,10 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 * Irene Romero Granados
 * Adrián Segura Ortiz
 * Marina Pachecho Rojas
+* Juan Antonio Herrera Conde
+* Clara Jiménez Valverde 
+* Lucía Valverde Martínez 
+* Irene Sánchez Jiménez
+* Stephan Charles Nielson
 * Fiorella Piriz Sapio
-
-
+* Laura Fernández García
