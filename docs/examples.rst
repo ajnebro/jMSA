@@ -38,11 +38,11 @@ We have downloaded the alignment in FASTA format and then used that file to make
 
 The result obtained with this example is:
 
- .. figure:: /docs/resources/images/ResultadosExample3.png
+ .. figure:: /docs/resources/images/ResultadosExample3.jpeg
 
 The alignment of the sequences shown below has been obtained using Clustal Omega, a new MSA tool that uses seeded guide trees and HMM profile-profile techniques to generate alignments:
 
- .. figure:: /docs/resources/images/AlineamientoExample3.png
+ .. figure:: /docs/resources/images/AlineamientoExample3.jpeg
 
 
 
