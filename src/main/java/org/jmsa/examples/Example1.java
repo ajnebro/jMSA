@@ -31,7 +31,7 @@ public class Example1 {
         SumOfPairs spp = new SumOfPairs(p);
         SumOfPairs spb = new SumOfPairs(b);
 
-        char [][] secuencia = r.readSequenceFromFastaFile("src/main/java/org/jmsa/examples/hemoglobina_alineada.txt");
+        char [][] secuencia = r.readSequenceFromFastaFile("resources/data/hemoglobinAligned.txt");
 
         System.out.println ("Entropy score: " + e.compute(secuencia));
         System.out.println ("Percentaje of Totally Conserved Columns score: " + pt.compute(secuencia));
