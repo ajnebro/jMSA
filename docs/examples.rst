@@ -18,11 +18,11 @@ Finally, it was also studied that the axotomy of some cultured neurons showed a 
 
 For all these curiosities and the number of organisms that contain it, we have decided to take this protein as an example.
 
- .. figure:: /docs/resources/images/AlineamientoGrupo2.jpeg
+ .. figure:: resources/images/AlineamientoGrupo2.jpeg
 
 The alignment shown has been done with 'Clustalw', a tool for biological sequence alignments. Finally, let's pass this alignment to the 'Examples2' class and run it.We get the following information:
 
- .. figure:: /docs/resources/images/ResultadosExample2.png
+ .. figure:: resources/images/ResultadosExample2.png
 
 We can observe that the entropy is 2.07. Regarding the percentage of non-gaps and the percentage of conserved columns, they are 96.07% and 60.38%, respectively. The score obtained applying the star method in the PAM250 substitution matrix is 9303, while applied to Blosum62 it is 9512. Finally, we see that the sum of pairs of PAM250 is 21319 and of Blosum62 is 21618.
 
@@ -38,11 +38,11 @@ We have downloaded the alignment in FASTA format and then used that file to make
 
 The result obtained with this example is:
 
- .. figure:: /docs/resources/images/ResultadosExample3.jpeg
+ .. figure:: resources/images/ResultadosExample3.jpeg
 
 The alignment of the sequences shown below has been obtained using Clustal Omega, a new MSA tool that uses seeded guide trees and HMM profile-profile techniques to generate alignments:
 
- .. figure:: /docs/resources/images/AlineamientoExample3.jpeg
+ .. figure:: resources/images/AlineamientoExample3.jpeg
 
 
 
@@ -58,16 +58,16 @@ In this case, we used virus type 1 group M subtype F1,  group M subtype A and gr
 from uniprot.
 To perform the MSA we used CLUSTAL O(1.2.4) multiple sequence alignment and the results were the following.
 
-    .. figure:: /docs/resources/imagesG5/G5ColorizedMSA1.jpeg
-    .. figure:: /docs/resources/imagesG5/G5ColorizedMSA2.jpeg
+    .. figure:: resources/imagesG5/G5ColorizedMSA1.jpeg
+    .. figure:: resources/imagesG5/G5ColorizedMSA2.jpeg
 
 Highligting the conserved regions:
 
-    .. figure:: /docs/resources/imagesG5/jMSAColorized.jpeg
+    .. figure:: resources/imagesG5/jMSAColorized.jpeg
 
 After passing the MSA to our program we obtained the following scores:
 
-    .. figure:: /docs/resources/imagesG5/jMSAEjemplo.jpeg
+    .. figure:: resources/imagesG5/jMSAEjemplo.jpeg
 
 Given this results, we can say that CLUSTAL is very similar to what we call high quality sequence alignments.
 
