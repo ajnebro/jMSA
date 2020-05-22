@@ -7,8 +7,9 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 
 **Developers:**
 
-* Name 1
-* Name 2
-* ...
+* Juan Sánchez Rodríguez
+* Irene Romero Granados
+* Adrián Segura Ortiz
+* Marina Pachecho Rojas
 
 
