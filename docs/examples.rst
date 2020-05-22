@@ -1,6 +1,28 @@
 Examples
 ========
 
+Example Group 1
+---------------
+In order to prove that the program works correctly, we have aligned a fasta and calculated all the scores.
+
+The file consists of 5 protein sequences from 5 different organisms: Homo sapiens, Gallus gallus (rooster), Equus caballus (horse),Papio anubis (primate) and Loxodonta africana (elephant). Those sequences, express a hemoglobin subunit, which can be alpha,beta, gamma or delta.
+
+Hemoglobin is a protein present in the red blood cells that carries oxygen from the lungs to the organs and tissues of the body. In addition, it transports carbon dioxide and hydrogen ions back to the lungs.
+This protein is has four different subunits, where each of them is a globular protein with an heme group.
+All of them have the same function, they bind one oxygen molecule thanks to ion-induced dipole force.
+
+We have took this protein as an example, for the main reason that it is such an important protein that takes an essential function in the organisms.
+
+The example already aligned with 'ClustalW' is the following:
+
+.. figure:: resources/images/hemoglobinAlignedExample.PNG
+
+If we compute the scores, we obtain this result:
+
+.. figure:: resources/images/resulthemoglobinExample.PNG
+
+
+
 Example Group 2
 ---------------
 
@@ -70,7 +92,6 @@ After passing the MSA to our program we obtained the following scores:
     .. figure:: resources/imagesG5/jMSAEjemplo.jpeg
 
 Given this results, we can say that CLUSTAL is very similar to what we call high quality sequence alignments.
-
 
 
 
