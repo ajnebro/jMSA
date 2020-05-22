@@ -1,15 +1,9 @@
 package org.jmsa.examples;
 
-import org.jmsa.util.ReadMSA;
-
-import org.jmsa.score.impl.PercentageOfNonGaps;
-import org.jmsa.score.impl.Entropy;
-import org.jmsa.score.impl.PercentageOfTotallyConservedColumns;
-import org.jmsa.score.impl.Star;
-import org.jmsa.score.impl.SumOfPairs;
-import org.jmsa.substitutionmatrix.impl.PAM250;
+import org.jmsa.score.impl.*;
 import org.jmsa.substitutionmatrix.impl.Blosum62;
-
+import org.jmsa.substitutionmatrix.impl.PAM250;
+import org.jmsa.util.ReadMSA;
 
 import java.io.FileNotFoundException;
 
