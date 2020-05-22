@@ -14,11 +14,11 @@ The following process is carried out:
 
 - Calculate the distances from the remaining symbols to the most repeated from a substitution matrix.
 
-.. figure:: /resources/image/Captura2.PNG
+.. figure:: /resources/images/Captura2.PNG
 
 That way, the form of a Star emerges:
 
-.. figure:: /resources/image/Captura4.PNG
+.. figure:: /resources/images/Captura4.PNG
 
 IMPLEMENTATION
 
@@ -175,7 +175,7 @@ represents how much distance exist between the sequences. Entropy is important b
 Mathematically it's represented by the summation of residue's frequency times the logarithm of different residue's number, as it can be observed in
 the following picture:
 
-.. image:: resources/image/entropy.jpg
+.. image:: resources/images/entropy.jpg
 
 - Implementation:
 

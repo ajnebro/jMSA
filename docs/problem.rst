@@ -30,4 +30,4 @@ and that he will give up on correctly aligning certain types of sequences.
 
 In short, the alignment procedure consists in inserting gaps inside the sequences:
 
-.. figure:: /resources/image/Captura.PNG
+.. figure:: /resources/images/Captura.PNG
