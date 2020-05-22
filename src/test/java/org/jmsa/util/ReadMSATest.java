@@ -64,11 +64,10 @@ class ReadMSATest {
     assertThrows(FileNotFoundException.class,()->seqReader.readSequenceFromFastaFile("./resources/data/nonexistent.fasta"));
   }
 
-  @Disabled
   @Test
   public void incorrectSequenceTest(){
     //Passing a valid filepath, with the file containing incorrectly aligned sequences
-    assertThrows(RuntimeException.class,()->seqReader.readSequenceFromFastaFile("./resources/data/BB11001.tfa"));
+    assertThrows(RuntimeException.class,()->seqReader.readSequenceFromFastaFile("./resources/data/BB11001NonAligned.tfa"));
   }
 
   @AfterEach
