@@ -1,7 +1,6 @@
 Examples
 ========
-
-Example Group 1
+EXAMPLE Group 1
 ---------------
 In order to prove that the program works correctly, we have aligned a fasta and calculated all the scores.
 
