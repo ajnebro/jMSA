@@ -57,16 +57,16 @@ In this case, we used virus type 1 group M subtype F1,  group M subtype A and gr
 from uniprot.
 To perform the MSA we used CLUSTAL O(1.2.4) multiple sequence alignment and the results were the following.
 
-.. figure:: /docs/resources/images/G5ColorizedMSA1.jpeg
-.. figure:: /docs/resources/images/G5ColorizedMSA1.jpeg
+.. figure:: /docs/resources/imagesG5/G5ColorizedMSA1.jpeg
+.. figure:: /docs/resources/imagesG5/G5ColorizedMSA1.jpeg
 
 Highligting the conserved regions:
 
-.. figure:: /docs/resources/images/jMSAColorized.jpeg
+.. figure:: /docs/resources/imagesG5/jMSAColorized.jpeg
 
 After passing the MSA to our program we obtained the following scores:
 
-.. figure:: /docs/resources/images/jMSAEjemplo.jpeg
+.. figure:: /docs/resources/imagesG5/jMSAEjemplo.jpeg
 
 Given this results, we can say that CLUSTAL is very similar to what we call high quality sequence alignments.
 
