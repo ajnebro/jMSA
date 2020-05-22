@@ -73,4 +73,21 @@ Given this results, we can say that CLUSTAL is very similar to what we call high
 
 
 
+Example Group 8
+---------------
 
+In order to test the program, I have selected 5 different **aminoglycoside 3'-phosphotransferase** , proteins that confer bacterial resistance to
+some antibiotics (kanamycin and neomycin). Two were sequenced from `Escherichia coli` , the others from `Enterococcus faecalis` , `Staphylococcus aureus`
+and `Salmonella typhimurium` . This protein is important in genetic engineering, Aminoglycoside 3’-phosphotransferase is an enzyme that catalyzes the
+addition of phosphate from ATP to an aminoglycoside (kanamycin or neomycin), counteracting the toxic effects of the antibiotic in the host bacterial cell.
+At the time of constructing vector plasmids, genes producing aminoglycoside 3'-phosphotransferase are included in the vector, which is then taken up by
+the bacteria. During growth fases, antibiotics are added to the cultures in order to selectively destroy cells that did not effectively take up the
+plasmid.
+
+The sequences were downloaded from UniProt and aligned with ClustalO:
+
+    .. figure:: resources/images/ColorizedMSAGroup8.png
+
+The result of scoring the alignment is as follows:
+
+    .. figure:: resources/images/ExampleGroup8Results.png
