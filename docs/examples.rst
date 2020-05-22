@@ -51,7 +51,7 @@ Example Group 5
 
 For this example we chose 3 sequences for diferent subtypes of VIH envelope protein p160. The study of
 this protein is interesting because to this day only inactivated whole virus vaccines had been shown
-to protect macaques from SIV(The simian equivalen of VIH), but recent studies have shown that inmunization
+to protect macaques from SIV(The simian equivalen of VIH), but recent studies have shown that antibodies
 against this protein is enough to develop an inmunization. So, in order to produce a vaccines, it would
 be interesting to determinate the conserved regions of multiples subtypes of this protein.
 In this case, we used virus type 1 group M subtype F1,  group M subtype A and group M subtype G sequences
