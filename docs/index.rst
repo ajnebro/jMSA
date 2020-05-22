@@ -19,11 +19,8 @@ the `multiple sequence alignment <https://en.wikipedia.org/wiki/Multiple_sequenc
    alignment_tools.rst
    how_to_score.rst
    scores.rst
-<<<<<<< HEAD
-   substitututionMatix.rst
-=======
+   substitutionMatrix.rst
    utils.rst
->>>>>>> 485c94bf76a23afb1ddc4f0076e5b053bf2e9a33
    examples.rst
 
 **Developers:**

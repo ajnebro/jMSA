@@ -20,7 +20,7 @@ PAM
 The PAM matrix (Point accepted mutation) represents the substitution, on average, of 1% of amino acids
 of another.
 
-.. image:: images/PAM250.PNG
+.. image:: resources/images/PAM250.PNG
 
 PAM250, the one we're using, is optimized for alignments with approxi-mately 20% identical residues.
 
@@ -31,7 +31,7 @@ The Blossum matrix (Block-sum) uses a more direct approach when estimating targe
 Said ‘blocks’ consist of aligned protein segments that are relatively well-conserved across whole 
 protein families.
 
-.. image:: images/Blossum62.PNG
+.. image:: resources/images/Blossum62.PNG
 
 The BLOSUM-62 matrix (which corresponds roughly toPAM-180 and is the one whe will be using) is derived
 by ﬁrst clustering all segments that are more than 62% identical.
