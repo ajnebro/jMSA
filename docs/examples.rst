@@ -45,8 +45,9 @@ The alignment of the sequences shown below has been obtained using Clustal Omega
  .. figure:: /docs/resources/images/AlineamientoExample3.png
 
 
- Example Group 5
-----------------
+
+Example Group 5
+---------------
 
 For this example we chose 3 sequences for diferent subtypes of VIH envelope protein p160. The study of
 this protein is interesting because to this day only inactivated whole virus vaccines had been shown
