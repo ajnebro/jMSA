@@ -10,8 +10,13 @@ import java.text.DecimalFormat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ *
  * implement Test for Entropy
- * Entropy('A')= 0--> length =1
+ * Entropy of one different word is 0; p.e: entropy(['A']['A'])=0
+ * Entropy of two different words is 0.69
+ * Entropy of four different words is 1.39
+ * Entropy of a sequence with gaps doesn't change the result
+ *
  */
 
 public class EntropyTest {
