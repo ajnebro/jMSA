@@ -3,7 +3,7 @@ Utils
 
 Class `ReadMSA` provides methods to read one or multiple sequences from a .fasta file.
 The main method is `readSequenceFromFastaFile()` , which takes a path to the .fasta file
-as a parameter and re`turns an array of arrays of chars, containing the sequences
+as a parameter and returns an array of arrays of chars, containing the sequences
 from the file (one array for each sequence), and its adjacent method `seqAlignedCorrectly()`,
 which is used to determine whether or not the sequences in the file are aligned
 correctly (in this case, if all sequences in the file are of equal length (including
@@ -66,7 +66,7 @@ Following is the Method Summary for the class.
 |                        | parameter in method call, and no RuntimeException  |
 |                        | is thrown                                          |
 +------------------------+----------------------------------------------------+
-| @AterEach              | fin()                                              |
+| @AfterEach             | fin()                                              |
 |                        |                                                    |
 | public void            | Sets *seqReader* to null after each test           |
 +------------------------+----------------------------------------------------+
