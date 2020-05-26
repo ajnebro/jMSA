@@ -5,9 +5,9 @@ import org.jmsa.score.Score;
 public class PercentageOfNonGaps implements Score {
   public double compute(char[][] sequence) {
     double counterNonGaps = 0;
-    for (int i = 0; i < sequence.length; i++) {
-      for (int j = 0; j < sequence[i].length; j++) {
-        if (sequence[i][j] != '-') {
+    for (char[] chars : sequence) {
+      for (char aChar : chars) {
+        if (aChar != '-') {
           counterNonGaps += 1;
         }
       }
