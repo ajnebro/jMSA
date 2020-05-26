@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 /**
- * Assuming we are receiving sequences that containg correct letters.
+ * Assuming we are receiving sequences that contains correct letters.
  *
  * <p>Case 1: {{'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}, {'A', 'T', 'C', 'G'}} They are all the
  * same, so the program should return 3*4*5 = 60
