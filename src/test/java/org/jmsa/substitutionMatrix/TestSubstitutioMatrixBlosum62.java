@@ -9,7 +9,7 @@ public class TestSubstitutioMatrixBlosum62 {
 
   private Blosum62 blosum62;
 
-  //Blosum62 tests
+  // Blosum62 tests
   @Test
   public void testShouldReturnMinus8VerB62() {
     blosum62 = new Blosum62();

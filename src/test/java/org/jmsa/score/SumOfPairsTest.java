@@ -14,7 +14,7 @@ class SumOfPairsTest {
   private SumOfPairs sum;
 
   @BeforeEach
-  //Before each test we'll create a SumOfPairs Object and a SubstitutionMatrix with mock
+  // Before each test we'll create a SumOfPairs Object and a SubstitutionMatrix with mock
   public void setup() {
     SubstitutionMatrix substitutionMatrix = mock(SubstitutionMatrix.class);
     sum = new SumOfPairs(substitutionMatrix);
@@ -46,10 +46,10 @@ class SumOfPairsTest {
   }
 
   @Test
-    /*Example:  {'A', 'G', 'G'}, AT AT TT       +5 +5 +5
-                {'A', 'C', 'G'}, G- GG -G       -4 +5 +5
-                {'A', 'G', '-'}  -A -- A-       -4 -4 -4
-                Sum of pair = 5*5 -4*4=9                 */
+  /*Example:  {'A', 'G', 'G'}, AT AT TT       +5 +5 +5
+  {'A', 'C', 'G'}, G- GG -G       -4 +5 +5
+  {'A', 'G', '-'}  -A -- A-       -4 -4 -4
+  Sum of pair = 5*5 -4*4=9                 */
   public void shouldSumOfPairsGeneralCaseWithGapsAlignedAndNotAlignedPairsReturnTheRightValue9() {
     char[][] matrix = {{'A', 'G', 'G'}, {'A', 'C', 'G'}, {'A', 'G', '-'}};
     double expectedValue = 9;
@@ -58,10 +58,10 @@ class SumOfPairsTest {
   }
 
   @Test
-    /*Example:  {'A', 'T', 'C'}, AA AA AA       +5 +5 +5
-                {'A', 'T', 'C'}, AA AA AA       +5 +5 +5
-                {'A', 'T', 'C'}  AA AA AA       +5 +5 +5
-                Sum of pair = 5*9=45                      */
+  /*Example:  {'A', 'T', 'C'}, AA AA AA       +5 +5 +5
+  {'A', 'T', 'C'}, AA AA AA       +5 +5 +5
+  {'A', 'T', 'C'}  AA AA AA       +5 +5 +5
+  Sum of pair = 5*9=45                      */
   public void shouldATotallyAlignedMSAReturnTheRightValue45() {
     char[][] matrix = {{'A', 'T', 'C'}, {'A', 'T', 'C'}, {'A', 'T', 'C'}};
     double expectedValue = 45;
@@ -70,10 +70,10 @@ class SumOfPairsTest {
   }
 
   @Test
-    /*Example:  {'-', '-', '-'}, -- -- --       -4 -4 -4
-                {'-', '-', '-'}, -- -- --       -4 -4 -4
-                {'-', '-', '-'}  -- -- --       -4 -4 -4
-                Sum of pair = -4*9=-36                    */
+  /*Example:  {'-', '-', '-'}, -- -- --       -4 -4 -4
+  {'-', '-', '-'}, -- -- --       -4 -4 -4
+  {'-', '-', '-'}  -- -- --       -4 -4 -4
+  Sum of pair = -4*9=-36                    */
   public void shouldATotallyGapsMSAReturnTheRightValueNegative36() {
     char[][] matrix = {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
     double expectedValue = -36;

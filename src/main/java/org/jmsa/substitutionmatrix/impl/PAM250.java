@@ -5,28 +5,27 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * PAM250 matrix class
- */
-public class PAM250 extends SubstitutionMatrixObject {
+/** PAM250 matrix class */
+public class PAM250 extends AbstractSubstitutionMatrix {
   private Double gapPenalty = null;
   private HashMap<List<Character>, Integer> substitutionMatrix;
 
-  //Constructor that takes default gapPenalty value
-  //This value is taken from substitutionMatrix file (method readMatrixFromFile)
+  // Constructor that takes default gapPenalty value
+  // This value is taken from substitutionMatrix file (method readMatrixFromFile)
   public PAM250() {
-    this.substitutionMatrix=null;
+    this.substitutionMatrix = null;
     matrixReader();
   }
 
-  //Constructor that changes gapPenalty value
+  // Constructor that changes gapPenalty value
   public PAM250(Double gapPenalty) {
     this.gapPenalty = gapPenalty;
-    this.substitutionMatrix=null;
+    this.substitutionMatrix = null;
     matrixReader();
   }
 
-  //This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
+  // This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
+  @Override
   public double getDistance(char char1, char char2) {
     List<Character> pair = new ArrayList<>();
     pair.add(char1);
@@ -40,26 +39,30 @@ public class PAM250 extends SubstitutionMatrixObject {
     return distance;
   }
 
-  //Default gapCharacter
+  // Default gapCharacter
+  @Override
   public char getGapCharacter() {
     return '-';
   }
 
-  //GapPenalty value obtained from substitutionMatrix
+  // GapPenalty value obtained from substitutionMatrix
+  @Override
   public double getGapPenalty() {
     return this.gapPenalty;
   }
 
-  private void matrixReader(){
-    SubstitutionMatrixReader matrixReader= new SubstitutionMatrixReader();
+  private void matrixReader() {
+    SubstitutionMatrixReader matrixReader = new SubstitutionMatrixReader();
 
-    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/PAM250",this);
+    this.substitutionMatrix = matrixReader.readMatrixFromFile("resources/data/PAM250", this);
   }
 
-  public Double getInitialGapPenalty(){
+  @Override
+  public Double getInitialGapPenalty() {
     return this.gapPenalty;
   }
 
+  @Override
   public void setGapPenalty(Double gapPenalty) {
     this.gapPenalty = gapPenalty;
   }

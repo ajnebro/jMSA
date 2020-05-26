@@ -5,6 +5,7 @@ import org.jmsa.substitutionmatrix.SubstitutionMatrix;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /** grupo 3: irene sanchez, clara jimenez y lucia valverde */
 public class Star implements Score {
@@ -46,9 +47,7 @@ public class Star implements Score {
 
     HashMap<Character, Integer> charFreq = new HashMap<Character, Integer>();
 
-    for (int numberOfSequence = 0;
-         numberOfSequence < parameterSequence.length;
-         numberOfSequence++) {
+    IntStream.range(0, parameterSequence.length).forEach(numberOfSequence -> {
       Character aa = parameterSequence[numberOfSequence][parameterPosAAinSequence];
       if (charFreq.containsKey(parameterSequence[numberOfSequence][parameterPosAAinSequence])) {
         Integer newFreq = (Integer) charFreq.get(aa) + 1;
@@ -57,7 +56,7 @@ public class Star implements Score {
       } else {
         charFreq.put(aa, 1);
       }
-    }
+    });
     int moreRepeatedFreq = 0;
     Character moreRepeatedAA = parameterSequence[0][parameterPosAAinSequence];
 

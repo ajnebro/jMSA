@@ -5,26 +5,27 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Blosum62 matrix class
- */
-public class Blosum62 extends SubstitutionMatrixObject {
-private Double gapPenalty = null;
+/** Blosum62 matrix class */
+public class Blosum62 extends AbstractSubstitutionMatrix {
+  private Double gapPenalty = null;
   private HashMap<List<Character>, Integer> substitutionMatrix;
 
-  //Constructor that takes default gapPenalty value
-  //This value is taken from substitutionMatrix file (method readMatrixFromFile)
-  public Blosum62() {this.substitutionMatrix=null;
-  matrixReader();}
-
-  //Constructor that changes gapPenalty value
-  public Blosum62(Double gapPenalty) {
-    this.gapPenalty = gapPenalty;
-    this.substitutionMatrix=null;
+  // Constructor that takes default gapPenalty value
+  // This value is taken from substitutionMatrix file (method readMatrixFromFile)
+  public Blosum62() {
+    this.substitutionMatrix = null;
     matrixReader();
   }
 
-  //This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
+  // Constructor that changes gapPenalty value
+  public Blosum62(Double gapPenalty) {
+    this.gapPenalty = gapPenalty;
+    this.substitutionMatrix = null;
+    matrixReader();
+  }
+
+  // This method takes the distance from substitutionMatrix (HashMap created in readMatrixFromFile)
+  @Override
   public double getDistance(char char1, char char2) {
     List<Character> pair = new ArrayList<>();
     pair.add(char1);
@@ -38,25 +39,30 @@ private Double gapPenalty = null;
     return distance;
   }
 
-  //Default gapCharacter
+  // Default gapCharacter
+  @Override
   public char getGapCharacter() {
     return '-';
   }
 
-  //GapPenalty value obtained from substitutionMatrix
+  // GapPenalty value obtained from substitutionMatrix
+  @Override
   public double getGapPenalty() {
     return this.gapPenalty;
   }
 
-  private void matrixReader(){
-    SubstitutionMatrixReader matrixReader= new SubstitutionMatrixReader();
-    this.substitutionMatrix=matrixReader.readMatrixFromFile("resources/data/Blosum62Matrix",this);
+  private void matrixReader() {
+    SubstitutionMatrixReader matrixReader = new SubstitutionMatrixReader();
+    this.substitutionMatrix =
+        matrixReader.readMatrixFromFile("resources/data/Blosum62Matrix", this);
   }
 
-  public Double getInitialGapPenalty(){
+  @Override
+  public Double getInitialGapPenalty() {
     return this.gapPenalty;
   }
 
+  @Override
   public void setGapPenalty(Double gapPenalty) {
     this.gapPenalty = gapPenalty;
   }

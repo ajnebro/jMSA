@@ -17,7 +17,6 @@ public class TestSubstitutioMatrixPAM250 {
     assertEquals(expectedValue, obtainedValue);
   }
 
-
   @Test
   public void testShouldReturnMinus8VerP250() {
     pam250 = new PAM250();
@@ -63,7 +62,7 @@ public class TestSubstitutioMatrixPAM250 {
     assertEquals(6, pam250.getDistance('H', 'H'));
   }
 
-  //Check correct distances when we introduce different gapPenalty parameter
+  // Check correct distances when we introduce different gapPenalty parameter
   @Test
   public void testShoulReturnDistancesMatrixWithDifferentGPVerP250() {
     pam250 = new PAM250(-10D);

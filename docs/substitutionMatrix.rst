@@ -1,8 +1,8 @@
 Subtitution Matrix
 ==================
 
-Theoric base.
--------------
+Theoric base
+------------
 
 Substitution matrices show the probability of an amino accid mutating or being substituted by 
 another one. The simplest matrix  would be the 'match/mismatch' one, which asigns a positive value
@@ -36,8 +36,8 @@ protein families.
 The BLOSUM-62 matrix (which corresponds roughly toPAM-180 and is the one whe will be using) is derived
 by ﬁrst clustering all segments that are more than 62% identical.
 
-Class structure.
-----------------
+Class structure
+---------------
 
 Blossum62 and PAM250 classes implement the SubstitutionMatix interface.
 

@@ -5,9 +5,7 @@ import org.jmsa.score.Score;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Compute entropy of a given multiple sequence char
- */
+/** Compute entropy of a given multiple sequence char */
 public class Entropy implements Score {
   public double compute(char[][] multipleSequences) {
     /* initialization */
@@ -20,7 +18,8 @@ public class Entropy implements Score {
       for (char word : sequence) {
         if (word != '-') {
           if (MapOfWordsWhitTimesOfRepetition.containsKey(word)) {
-            MapOfWordsWhitTimesOfRepetition.put(word, MapOfWordsWhitTimesOfRepetition.get(word) + 1);
+            MapOfWordsWhitTimesOfRepetition.put(
+                word, MapOfWordsWhitTimesOfRepetition.get(word) + 1);
           } else {
             MapOfWordsWhitTimesOfRepetition.put(word, 1);
           }
@@ -29,11 +28,11 @@ public class Entropy implements Score {
       }
     }
     /* calculate Entropy */
-    for (Map.Entry<Character, Integer> nucleotideInMap : MapOfWordsWhitTimesOfRepetition.entrySet()) {
+    for (Map.Entry<Character, Integer> nucleotideInMap :
+        MapOfWordsWhitTimesOfRepetition.entrySet()) {
       wordsFrequency = (double) nucleotideInMap.getValue() / totalNumberOfWords;
       entropyValue += -(wordsFrequency * Math.log(wordsFrequency));
     }
     return entropyValue;
   }
 }
-

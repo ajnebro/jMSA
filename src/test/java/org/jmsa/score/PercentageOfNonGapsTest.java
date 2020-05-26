@@ -25,38 +25,48 @@ public class PercentageOfNonGapsTest {
 
   @Test
   public void thePercentageOfASequenceWithoutGapsIs100() {
-    sequence = new char[][]{{'A', 'G', 'A', 'T'}, {'G', 'G', 'C', 'T'}, {'A', 'G', 'C', 'C'}};
+    sequence = new char[][] {{'A', 'G', 'A', 'T'}, {'G', 'G', 'C', 'T'}, {'A', 'G', 'C', 'C'}};
     assertEquals(100, pong.compute(sequence));
   }
 
   @Test
   public void thePercentageOfASequenceAllGapsIs0() {
-    sequence = new char[][]{{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
+    sequence = new char[][] {{'-', '-', '-'}, {'-', '-', '-'}, {'-', '-', '-'}};
     assertEquals(0, pong.compute(sequence));
   }
 
   @Test
   public void thePercentageOfASequenceHalfLettersHalfGapsIs50() {
-    sequence = new char[][]{{'-', 'G', '-', 'T', '-'}, {'A', 'G', '-', '-', 'T'}};
+    sequence = new char[][] {{'-', 'G', '-', 'T', '-'}, {'A', 'G', '-', '-', 'T'}};
     assertEquals(50, pong.compute(sequence));
   }
 
   @Test
   public void thePercentageOfASequenceThreeQuartersLettersIs75() {
-    sequence = new char[][]{{'A', 'G', '-', 'T'}, {'G', '-', 'C', 'T'}, {'A', 'G', '-', 'C'}};
+    sequence = new char[][] {{'A', 'G', '-', 'T'}, {'G', '-', 'C', 'T'}, {'A', 'G', '-', 'C'}};
     assertEquals(75, pong.compute(sequence));
   }
 
   @Test
   public void thePercentageOfASequence2GapsAnd10LettersIs83with33() {
-    sequence = new char[][]{{'A', 'G', '-', 'T'}, {'G', 'G', 'C', 'T'}, {'A', 'G', '-', 'C'}};
+    sequence = new char[][] {{'A', 'G', '-', 'T'}, {'G', 'G', 'C', 'T'}, {'A', 'G', '-', 'C'}};
     assertEquals(((double) 10 / 12) * 100, pong.compute(sequence));
   }
 
   @Test
   public void thePercentageOfASequence5GapsAnd13LettersIs72with22() {
-    sequence = new char[][]{{'C', 'G'}, {'A', '-'}, {'G', 'T'}, {'-', 'C'}, {'A', '-'}, {'-', 'C'},
-            {'C', 'G'}, {'A', '-'}, {'G', 'T'}};
+    sequence =
+        new char[][] {
+          {'C', 'G'},
+          {'A', '-'},
+          {'G', 'T'},
+          {'-', 'C'},
+          {'A', '-'},
+          {'-', 'C'},
+          {'C', 'G'},
+          {'A', '-'},
+          {'G', 'T'}
+        };
     assertEquals(((double) 13 / 18) * 100, pong.compute(sequence));
   }
 }
