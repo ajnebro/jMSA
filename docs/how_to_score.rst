@@ -1,5 +1,5 @@
 How to score an MSA
-=======
+===================
 An MSA is, as its name suggests, a multiple sequence alignment that consists of searching for common regions in three or more sequences(DNA, RNA and proteins) so the best column's alignment can be found. It can be noticed that a larger number of aligned columns, as well a shorter number of gaps, involves higher possibilities of scoring a multiple sequence alignment. Of this form, it is possible to try to score an MSA in an intuitive way.
 
 However, there are several methods which are more reliable for our objective:
