@@ -10,27 +10,28 @@ import java.util.Map;
  */
 public class Entropy implements Score {
   public double compute(char[][] multipleSequences) {
-    double totalNumberOfNucleotides = 0;
-    HashMap<Character, Integer> MapOfNucleotideWhitTimesOfRepetition = new HashMap<>();
-    double nucleotideFrequency = 0;
+    /* initialization */
+    double totalNumberOfWords = 0;
+    HashMap<Character, Integer> MapOfWordsWhitTimesOfRepetition = new HashMap<>();
+    double wordsFrequency = 0;
     double entropyValue = 0;
-
+    /* calculate time every different word appears in a sequence; word can be amino acid or nucleotide */
     for (char[] sequence : multipleSequences) {
-      for (char nucleotide : sequence) {
-        if (nucleotide != '-') {
-          if (MapOfNucleotideWhitTimesOfRepetition.containsKey(nucleotide)) {
-            MapOfNucleotideWhitTimesOfRepetition.put(nucleotide, MapOfNucleotideWhitTimesOfRepetition.get(nucleotide) + 1);
+      for (char word : sequence) {
+        if (word != '-') {
+          if (MapOfWordsWhitTimesOfRepetition.containsKey(word)) {
+            MapOfWordsWhitTimesOfRepetition.put(word, MapOfWordsWhitTimesOfRepetition.get(word) + 1);
           } else {
-            MapOfNucleotideWhitTimesOfRepetition.put(nucleotide, 1);
+            MapOfWordsWhitTimesOfRepetition.put(word, 1);
           }
-          totalNumberOfNucleotides++;
+          totalNumberOfWords++;
         }
       }
     }
-
-    for (Map.Entry<Character, Integer> nucleotideInMap : MapOfNucleotideWhitTimesOfRepetition.entrySet()) {
-      nucleotideFrequency = (double) nucleotideInMap.getValue() / totalNumberOfNucleotides;
-      entropyValue += -(nucleotideFrequency * Math.log(nucleotideFrequency));
+    /* calculate Entropy */
+    for (Map.Entry<Character, Integer> nucleotideInMap : MapOfWordsWhitTimesOfRepetition.entrySet()) {
+      wordsFrequency = (double) nucleotideInMap.getValue() / totalNumberOfWords;
+      entropyValue += -(wordsFrequency * Math.log(wordsFrequency));
     }
     return entropyValue;
   }
