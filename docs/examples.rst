@@ -94,6 +94,17 @@ After passing the MSA to our program we obtained the following scores:
 Given this results, we can say that CLUSTAL is very similar to what we call high quality sequence alignments.
 
 
+Example Group 6
+---------------
+
+To show the operation of our code we will proceed to make a test of it.
+For this we have selected a fasta file in which 4 sequences are found aligned. We have obtained this file from the sequoya project and it is the following:
+
+    .. figure:: resources/images/sequenceG6.jpeg
+
+After executing the code on the sequences shown, the result was as follows:
+
+    .. figure:: resources/images/.jpeg
 
 
 Example Group 8
