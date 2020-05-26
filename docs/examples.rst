@@ -104,7 +104,7 @@ For this we have selected a fasta file in which 4 sequences are found aligned. W
 
 After executing the code on the sequences shown, the result was as follows:
 
-    .. figure:: resources/images/.jpeg
+    .. figure:: resources/images/resultG6.jpeg
 
 
 Example Group 8
