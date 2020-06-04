@@ -19,3 +19,5 @@ jMSA is a collaborative project of the students of the "Programación Avanzada i
 * Fiorella Piriz Sapio
 * Laura Fernández García
 * Rostyslav Zavoiko
+* Bogdan Catalin Mihesan
+* Antonio Vargas Almodóvar
