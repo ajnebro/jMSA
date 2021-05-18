@@ -27,4 +27,9 @@ public class SumOfPairs implements Score {
     }
     return columnSum;
   }
+
+  @Override
+  public boolean isAMinimizationScore() {
+    return false;
+  }
 }

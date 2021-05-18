@@ -14,4 +14,9 @@ public class PercentageOfNonGaps implements Score {
     }
     return counterNonGaps / (sequence.length * sequence[0].length) * 100;
   }
+
+  @Override
+  public boolean isAMinimizationScore() {
+    return false;
+  }
 }

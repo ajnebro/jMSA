@@ -20,4 +20,9 @@ public class PercentageOfTotallyConservedColumns implements Score {
     }
     return counterConservedColumns / (lenghtSeq) * 100;
   }
+
+  @Override
+  public boolean isAMinimizationScore() {
+    return false;
+  }
 }

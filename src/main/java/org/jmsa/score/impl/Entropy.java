@@ -35,4 +35,9 @@ public class Entropy implements Score {
     }
     return entropyValue;
   }
+
+  @Override
+  public boolean isAMinimizationScore() {
+    return false;
+  }
 }

@@ -68,4 +68,9 @@ public class Star implements Score {
     }
     return moreRepeatedAA;
   }
+
+  @Override
+  public boolean isAMinimizationScore() {
+    return false;
+  }
 }
