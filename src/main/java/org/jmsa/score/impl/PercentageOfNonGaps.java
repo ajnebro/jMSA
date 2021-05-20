@@ -19,4 +19,9 @@ public class PercentageOfNonGaps implements Score {
   public boolean isAMinimizationScore() {
     return false;
   }
+
+  @Override
+  public String name() {
+    return "Percentage of non-gap symbols" ;
+  }
 }

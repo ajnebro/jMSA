@@ -25,4 +25,9 @@ public class PercentageOfTotallyConservedColumns implements Score {
   public boolean isAMinimizationScore() {
     return false;
   }
+
+  @Override
+  public String name() {
+    return "Percentage of Totally Conserved Columns" ;
+  }
 }

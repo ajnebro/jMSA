@@ -40,4 +40,9 @@ public class Entropy implements Score {
   public boolean isAMinimizationScore() {
     return false;
   }
+
+  @Override
+  public String name() {
+    return "Entropy" ;
+  }
 }

@@ -32,4 +32,9 @@ public class SumOfPairs implements Score {
   public boolean isAMinimizationScore() {
     return false;
   }
+
+  @Override
+  public String name() {
+    return "Sum of Pairs" ;
+  }
 }
